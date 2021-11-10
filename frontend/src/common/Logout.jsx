@@ -15,10 +15,11 @@ const Logout = () => {
           alert('logout fails');
           return;
         }
-        console.log('zheshi data', data);
+        // console.log('zheshi data', data);
         localStorage.token = {};
-        console.log('zheshi token', localStorage.token);
-        console.log(typeof localStorage.token);
+        window.location.href = '/common/login';
+        // console.log('zheshi token', localStorage.token);
+        // console.log(typeof localStorage.token);
       });
   };
   return <>

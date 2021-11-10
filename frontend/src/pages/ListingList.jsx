@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import ListingDelete from './ListingDelete';
+import ListingPublish from './ListingPublish';
+import ListingUnpublish from './ListingUnpublish';
 const ListingList = () => {
   const [listings, setListings] = React.useState([]);
   React.useEffect(() => {
@@ -8,11 +12,17 @@ const ListingList = () => {
   }, []);
   return <>
     {listings.map((listing, idx) => {
-      console.log(listing);
+      const urlEdit = '/listing/edit/' + listing.id;
+      // const urlDelete = '/listing/delete/' + listing.id;
       return (
           <>
             <hr/>
-          <div key={idx}>{listing.title}
+          <div key={idx}>
+            {listing.title}<br/>
+            <Link to={urlEdit} key={listing.id}><button>Edit</button></Link>
+            <ListingDelete name={listing.id}/>
+            <ListingPublish name={listing.id}/>
+            <ListingUnpublish name={listing.id}/>
           <img src={listing.thumbnail}/>
           </div>
           </>

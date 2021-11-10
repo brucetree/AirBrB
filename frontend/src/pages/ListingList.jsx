@@ -14,7 +14,9 @@ const ListingList = () => {
     {listings.map((listing, idx) => {
       const urlEdit = '/listing/edit/' + listing.id;
       // const urlDelete = '/listing/delete/' + listing.id;
-      return (
+      console.log(localStorage);
+      if (localStorage.email === listing.owner) {
+        return (
           <>
             <hr/>
           <div key={idx}>
@@ -26,7 +28,10 @@ const ListingList = () => {
           <img src={listing.thumbnail}/>
           </div>
           </>
-      )
+        );
+      } else {
+        return (<></>);
+      }
     })}
   </>;
 }

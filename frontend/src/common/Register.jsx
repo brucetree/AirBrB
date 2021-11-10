@@ -33,7 +33,9 @@ const Register = () => {
         }
         console.log('zheshi data', data);
         localStorage.token = data.token;
+        localStorage.email = email;
         console.log('zheshi token', localStorage.token);
+        window.location.href = '/';
       });
   };
   return <>

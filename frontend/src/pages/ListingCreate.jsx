@@ -21,7 +21,13 @@ const ListingCreate = () => {
       })
     })
       .then(r => r.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if (data.error) {
+          alert('create fails');
+          return;
+        }
+        window.location.href = '/listings';
+      });
   };
   return <>
       Title: <input type="text" value={title} onChange={ event => { setTitle(event.target.value) } }/><br/>

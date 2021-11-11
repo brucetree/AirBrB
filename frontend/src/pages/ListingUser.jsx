@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 const ListingUser = () => {
   const [listings, setListings] = React.useState([]);
   listings.sort(function (a, b) {
@@ -22,6 +23,7 @@ const ListingUser = () => {
   }, []);
   return <>
     {listings.map((listing, idx) => {
+      const url = '/listing/detail/' + listing.id;
       // console.log(localStorage);
       // if (localStorage.email === listing.owner) {
       //   return (
@@ -50,6 +52,7 @@ const ListingUser = () => {
             <hr/>
             <div key={idx}>
               {listing.title}<br/>
+              <Link to={url} key={listing.id}><button>View</button></Link>
               <img src={listing.thumbnail}/>
             </div>
       </>

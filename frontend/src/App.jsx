@@ -9,7 +9,8 @@ import Logout from './common/Logout';
 import Home from './pages/Home';
 import ListingEdit from './pages/ListingEdit';
 import ListingUser from './pages/ListingUser';
-// import ListingDelete from './pages/ListingDelete';
+import ListingDetail from './pages/ListingDetail';
+
 function App () {
   return (
     <>
@@ -29,6 +30,7 @@ function App () {
               <Route path="/listing/edit/:listingId" element={<ListingEdit/>}/>
               {/* <Route path="/listing/delete/:listingId" element={<ListingDelete/>}/> */}
               <Route path="/listing/user" element={<ListingUser/>}/>
+              <Route path="/listing/detail/:listingId" element={<ListingDetail/>}/>
               <Route path="/common/login" element={<Login/>}/>
               <Route path="/common/register" element={<Register/>}/>
               <Route path="/common/logout" element={<Logout/>}/>

@@ -24,29 +24,6 @@ const ListingUser = () => {
   return <>
     {listings.map((listing, idx) => {
       const url = '/listing/detail/' + listing.id;
-      // console.log(localStorage);
-      // if (localStorage.email === listing.owner) {
-      //   return (
-      //       <>
-      //         <hr/>
-      //         <div key={idx}>
-      //           {listing.title}<br/>
-      //           <img src={listing.thumbnail}/>
-      //         </div>
-      //       </>
-      //   );
-      // }
-      // if (localStorage.token === '[object Object]') {
-      //   return (
-      //       <>
-      //         <hr/>
-      //         <div key={idx}>
-      //           {listing.title}<br/>
-      //           <img src={listing.thumbnail}/>
-      //         </div>
-      //       </>
-      //   );
-      // }
       return (
           <>
             <hr/>

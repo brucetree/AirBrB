@@ -8,6 +8,7 @@ import Register from './common/Register';
 import Logout from './common/Logout';
 import Home from './pages/Home';
 import ListingEdit from './pages/ListingEdit';
+import ListingUser from './pages/ListingUser';
 // import ListingDelete from './pages/ListingDelete';
 function App () {
   return (
@@ -16,6 +17,7 @@ function App () {
         <Link to="/">Home</Link>&nbsp;|&nbsp;
         <Link to="/listings">All Listing</Link>&nbsp;|&nbsp;
         <Link to="/listing/create">Listing Create</Link>&nbsp;|&nbsp;
+          <Link to="/listing/user">User List</Link>&nbsp;|&nbsp;
           <Link to="/common/login">Login</Link>&nbsp;|&nbsp;
           <Link to="/common/register">Register</Link>&nbsp;|&nbsp;
           <Link to="/common/logout">Logout</Link>&nbsp;|&nbsp;
@@ -26,6 +28,7 @@ function App () {
               <Route path="/listing/create" element={<ListingCreate/>}/>
               <Route path="/listing/edit/:listingId" element={<ListingEdit/>}/>
               {/* <Route path="/listing/delete/:listingId" element={<ListingDelete/>}/> */}
+              <Route path="/listing/user" element={<ListingUser/>}/>
               <Route path="/common/login" element={<Login/>}/>
               <Route path="/common/register" element={<Register/>}/>
               <Route path="/common/logout" element={<Logout/>}/>

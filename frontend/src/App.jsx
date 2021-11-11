@@ -6,7 +6,7 @@ import Login from './common/Login';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import Register from './common/Register';
 import Logout from './common/Logout';
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import ListingEdit from './pages/ListingEdit';
 import ListingUser from './pages/ListingUser';
 import ListingDetail from './pages/ListingDetail';
@@ -16,7 +16,7 @@ function App () {
     <>
       <Router>
         <Link to="/">Home</Link>&nbsp;|&nbsp;
-        <Link to="/listings">All Listing</Link>&nbsp;|&nbsp;
+        <Link to="/listings">Host List</Link>&nbsp;|&nbsp;
         <Link to="/listing/create">Listing Create</Link>&nbsp;|&nbsp;
           <Link to="/listing/user">User List</Link>&nbsp;|&nbsp;
           <Link to="/common/login">Login</Link>&nbsp;|&nbsp;
@@ -24,7 +24,7 @@ function App () {
           <Link to="/common/logout">Logout</Link>&nbsp;|&nbsp;
             <hr />
           <Routes>
-              <Route path="/" element={<Home/>}/>
+              <Route path="/" element={<ListingUser/>}/>
               <Route path="/listings" element={<ListingList/>}/>
               <Route path="/listing/create" element={<ListingCreate/>}/>
               <Route path="/listing/edit/:listingId" element={<ListingEdit/>}/>

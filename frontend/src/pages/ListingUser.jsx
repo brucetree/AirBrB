@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ListingUser.css'
 const ListingUser = () => {
   const [listings, setListings] = React.useState([]);
   listings.sort(function (a, b) {
@@ -22,19 +23,26 @@ const ListingUser = () => {
       .then(data => setListings(data.listings));
   }, []);
   return <>
+    <div className={'container'}>
+      <div className={'cards'}>
     {listings.map((listing, idx) => {
       const url = '/listing/detail/' + listing.id;
       return (
           <>
-            <hr/>
-            <div key={idx}>
-              {listing.title}<br/>
+            <div key={idx} className={'cards-items'}>
+<div className={'header'}>
+              <img src={listing.thumbnail} className={'list-img'}/>
+            </div>
+              <div className={'bottom-container'}>
+                <p>{listing.title}</p>
               <Link to={url} key={listing.id}><button>View</button></Link>
-              <img src={listing.thumbnail}/>
+              </div>
             </div>
       </>
       );
     })}
+    </div>
+    </div>
   </>;
 }
 

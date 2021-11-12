@@ -1,4 +1,6 @@
 import React from 'react';
+import './login.css'
+import logo from '../components/logo.svg';
 const Login = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -28,9 +30,19 @@ const Login = () => {
       });
   };
   return <>
-        Email: <input type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/><br/>
-        Password: <input type="text" value={password} onChange={ event => { setPassword(event.target.value) } }/><br/>
-        <button onClick={loginFunction}>Login</button>
+      <div className={'newcontainer'}>
+          <div className={'right-container'}>
+              <div className={'icon'}>
+                  <img src={logo} className={'title-img'}/>
+                      <p className={'title'}>Login</p>
+              </div>
+              <div className={'register-area'}>
+                  Email: <input className={'login-input'} type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/><br/>
+                  Password: <input className={'login-input'} type="text" value={password} onChange={ event => { setPassword(event.target.value) } }/><br/>
+                  <button onClick={loginFunction} className={'register-button'}>Login</button>
+              </div>
+      </div>
+      </div>
     </>;
 }
 

@@ -3,25 +3,20 @@ import './App.css';
 import ListingList from './pages/ListingList';
 import ListingCreate from './pages/ListingCreate';
 import Login from './common/Login';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Register from './common/Register';
 import Logout from './common/Logout';
 // import Home from './pages/Home';
 import ListingEdit from './pages/ListingEdit';
 import ListingUser from './pages/ListingUser';
 import ListingDetail from './pages/ListingDetail';
+import NavBar from './components/NavBar';
 
 function App () {
   return (
     <>
       <Router>
-        <Link to="/">Home</Link>&nbsp;|&nbsp;
-        <Link to="/listings">Host List</Link>&nbsp;|&nbsp;
-        <Link to="/listing/create">Listing Create</Link>&nbsp;|&nbsp;
-          <Link to="/listing/user">User List</Link>&nbsp;|&nbsp;
-          <Link to="/common/login">Login</Link>&nbsp;|&nbsp;
-          <Link to="/common/register">Register</Link>&nbsp;|&nbsp;
-          <Link to="/common/logout">Logout</Link>&nbsp;|&nbsp;
+         <NavBar />
             <hr />
           <Routes>
               <Route path="/" element={<ListingUser/>}/>

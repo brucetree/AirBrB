@@ -19,8 +19,7 @@ const Logout = () => {
           return;
         }
         // console.log('zheshi data', data);
-        localStorage.token = {};
-        localStorage.email = {};
+        localStorage.clear();
         console.log(localStorage.email);
         window.location.href = '/common/login';
         // console.log('zheshi token', localStorage.token);

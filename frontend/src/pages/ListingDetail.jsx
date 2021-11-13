@@ -1,5 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import '../css/Detail.css';
+import DetailInfo from '../components/DetailPageItems.jsx';
+
 const ListingDetail = () => {
   const params = useParams();
   let id = '';
@@ -27,15 +30,14 @@ const ListingDetail = () => {
       }
       );
   }, []);
-  return <>
-    Owner: {owner} <br/>
-    Title: {title} <br/>
-    Price: {price} <br/>
-    Address: {address} <br/>
-    Type: {type} <br/>
-    Bedrooms: {bedrooms} <br/>
-    Bathrooms: {bathrooms} <br/>
-    <img src={thumbnail}/>
-  </>;
+  return <DetailInfo
+    owner = {owner}
+    title = {title}
+    price = {price}
+    address = {address}
+    type = {type}
+    bathrooms = {bathrooms}
+    bedrooms = {bedrooms}
+    thumbnail = {thumbnail}/>;
 }
 export default ListingDetail;

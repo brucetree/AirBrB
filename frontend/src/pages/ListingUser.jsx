@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ListingUser.css'
+
 const ListingUser = () => {
   const [listings, setListings] = React.useState([]);
   listings.sort(function (a, b) {
@@ -23,27 +24,30 @@ const ListingUser = () => {
       .then(data => setListings(data.listings));
   }, []);
   return <>
-    <div className={'container'}>
-      <div className={'cards'}>
-    {listings.map((listing, idx) => {
-      const url = '/listing/detail/' + listing.id;
-      return (
-          <>
-            <div key={idx} className={'cards-items'}>
-<div className={'header'}>
-              <img src={listing.thumbnail} className={'list-img'}/>
+        <div className={'container'}>
+            <div className={'cards'}>
+                {listings.map((listing, idx) => {
+                  const url = '/listing/detail/' + listing.id;
+                  return (
+                        <>
+                            <div key={idx} className={'cards-items'}>
+                                <div className={'header'}>
+                                    <img src={listing.thumbnail} className={'list-img'}/>
+                                </div>
+                                <div className={'bottom-container'}>
+                                    <p>Title:{listing.title}</p>
+                                    <p>Number of reviews: {listing.reviews.length}</p>
+                                    <Link to={url} key={listing.id}>
+                                        <button>View</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </>
+                  );
+                })}
             </div>
-              <div className={'bottom-container'}>
-                <p>{listing.title}</p>
-              <Link to={url} key={listing.id}><button>View</button></Link>
-              </div>
-            </div>
-      </>
-      );
-    })}
-    </div>
-    </div>
-  </>;
+        </div>
+    </>;
 }
 
 export default ListingUser;

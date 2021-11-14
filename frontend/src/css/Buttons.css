@@ -15,3 +15,33 @@
     background: #f58220;
     color: white;
 }
+
+.btn_nav{
+    width: 120px;
+    height: 30px;
+    font-size: 18px;
+    margin-left: 10px;
+    border-radius: 4px 4px 4px 4px;
+    border: none;
+    color: white;
+    background: #f58220;
+    cursor: pointer;
+}
+
+.btn_nav:hover{
+    background: #1d953f;
+}
+
+@media screen and (max-width: 800px) {
+    .btn_nav{
+        width: 80px;
+        height: 25px;
+        font-size: 14px;
+        margin-left: 10px;
+        border-radius: 4px 4px 4px 4px;
+        border: none;
+        color: white;
+        background: #f58220;
+        cursor: pointer;
+    }
+}

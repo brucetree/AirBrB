@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Detail.css';
 import PropTypes from 'prop-types';
+import '../css/Home.css'
 
 function getQueryVariable (variable) {
   var query = window.location.search.substring(1);
@@ -31,11 +32,12 @@ const HomeCard = (props) => {
       }
       );
   }, []);
+  const url = '../listing/detail/' + props.value;
   const sTitle = getQueryVariable('search_title');
   const sLocation = getQueryVariable('search_location');
   if (published === true) {
     if ((sTitle === '' || title.indexOf(sTitle) !== -1) && (sLocation === '' || address.indexOf(sLocation) !== -1)) {
-      return <>{title},{reviews},{thumbnail}</>;
+      return <a href={url}><HomeCardInfo title={title} reviews={reviews} thumbnail={thumbnail}/></a>;
     }
   }
   return (
@@ -44,8 +46,61 @@ const HomeCard = (props) => {
   );
 }
 
+const HomeCardInfo = (props) => {
+  return (
+    <div className = "home_card">
+      <HomeCardImg thumbnail={props.thumbnail}/>
+      <HomeCardTitle value={props.title}/>
+      <HomeCardLine title='Reviews' value={props.reviews}/>
+    </div>
+  );
+}
+
+const HomeCardImg = (props) => {
+  return (
+  <div className = "home_card_img">
+    <img src = {props.thumbnail} height="100%" width="100%"/>
+  </div>
+  );
+}
+
+const HomeCardTitle = (props) => {
+  return (
+    <div className = "home_card_line title">
+      {props.value}
+    </div>
+  );
+}
+
+const HomeCardLine = (props) => {
+  return (
+    <div className = "home_card_line">
+      <div className = "home_card_line_tag">{props.title}</div> {props.value}
+    </div>
+  );
+}
+
+HomeCardTitle.propTypes = {
+  value: PropTypes.string,
+}
+
+HomeCardLine.propTypes = {
+  title: PropTypes.string,
+  value: PropTypes.string,
+}
+
+HomeCardImg.propTypes = {
+  thumbnail: PropTypes.string,
+}
+
 HomeCard.propTypes = {
   value: PropTypes.string,
+}
+
+HomeCardInfo.propTypes = {
+  title: PropTypes.string,
+  reviews: PropTypes.string,
+  thumbnail: PropTypes.string,
 }
 
 export default HomeCard;

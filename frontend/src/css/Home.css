@@ -1,0 +1,112 @@
+.home_body{
+    width: 1200px;
+    margin: 10px auto;
+}
+
+.home_search_bar{
+    width: 1200px;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid black;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.home_search_bar input{
+    width: 150px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.home_search_btn{
+    width: 60px;
+    height: 30px;
+    color: black;
+    background: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .home_search_bar{
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 35px;
+        border: 1px solid black;
+        font-size: 12px;
+    }
+
+    .home_search_bar input{
+        width: 120px;
+        height: 30px;
+    }
+
+    .home_search_btn{
+        width: 60px;
+        height: 30px;
+    }
+
+    .home_body{
+        width: 400px;
+        margin: 0 auto;
+    }
+
+}
+
+.home_card{
+    width: 580px;
+    float: left;
+    margin: 10px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.home_card_img{
+    margin: 10px;
+    float: left;
+    width: 280px;
+    height: 280px;
+}
+
+
+.home_card_line{
+    width: 260px;
+    padding-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    overflow: hidden;
+    color: black;
+    float: left;
+}
+
+.home_card_line.title{
+    width: 260px;
+    padding-left: 0px;
+    margin-bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    background: #777777;
+    float: left;
+}
+
+.home_card_line_tag{
+    width: 75px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 5px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    color: black;
+    background: #cdcdcd;
+    float: left;
+}

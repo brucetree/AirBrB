@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ListingUser.css'
+import '../css/Home.css'
 import HomeCard from '../components/HomeItems.jsx';
 
 const Home = () => {
@@ -26,39 +26,26 @@ const Home = () => {
       .then(data => setListings(data.listings));
   }, []);
   console.log(listings);
-  return <>
+  return <div className='home_body'>
         <SearchForm/>
         {listings.map((listing, idx) => {
-          const url = '/listing/detail/' + listing.id;
           console.log(listing);
-          return (
-                <>
-                    <HomeCard value={listing.id}/>
-                    <div key={idx} className={'cards-items'}>
-                        <div className={'header'}>
-                            <img src={listing.thumbnail} className={'list-img'}/>
-                        </div>
-                        <div className={'bottom-container'}>
-                            <p>Title:{listing.title}</p>
-                            <p>Number of reviews: {listing.reviews.length}</p>
-                            <Link to={url} key={listing.id}>
-                                <button>View</button>
-                            </Link>
-                        </div>
-                    </div>
-                </>
-          );
+          return <HomeCard value={listing.id} key={idx}/>;
         })}
-    </>;
+    </div>;
 }
 
 const SearchForm = (props) => {
   return (
+    <div className='home_search_bar'>
+    <b>Search Bar</b><br/>
+    Tips : Property will not be filtered if nothing is added to the input box )
     <form>
-      <input name='search_title'/>
-      <input name='search_location'/>
-      <button type='submit'>Search</button>
+      Title : <input name='search_title'/>
+      Location : <input name='search_location'/>
+      <button type='submit' className='home_search_btn'>Search</button>
     </form>
+    </div>
   );
 }
 

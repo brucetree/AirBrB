@@ -1,7 +1,6 @@
 .listing_list_page{
     width: 1200px;
     margin: 10px auto;
-    background: blue;
 }
 
 @media screen and (max-width: 700px) {
@@ -17,8 +16,8 @@
     height: 640px;
     background: white;
     border: 2px solid black;
-    float: left;
     border-radius: 10px 10px 10px 10px;
+    float: left;
 }
 
 .listing_card_line{

@@ -5,8 +5,6 @@ const ListingUnpublish = (props) => {
   const id = props.name;
   const url = 'http://localhost:5005/listings/unpublish/' + id;
   const token = localStorage.token;
-  console.log('zheshiid', id);
-  console.log('zheshi waibu url', url);
   const unpublishListing = () => {
     fetch(url, {
       method: 'PUT',

@@ -11,8 +11,6 @@ const ListingDelete = (props) => {
   const id = props.name;
   const url = 'http://localhost:5005/listings/' + id;
   const token = localStorage.token;
-  console.log('zheshiid', id);
-  console.log('zheshi waibu url', url);
   const deleteListing = () => {
     console.log('zheshi neibu url', url);
     fetch(url, {

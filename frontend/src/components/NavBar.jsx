@@ -20,7 +20,6 @@ const NavBar = () => {
                 <div className="nav_bar">
                     <img src={logo} className="logo" />
                     <Link to="/"><button className="btn_nav">Home</button></Link>
-                    <Link to="/listing/user"><button className="btn_nav">User List</button></Link>
                     <Link to="/common/login"><button className="btn_nav">Login</button></Link>
                     <Link to="/common/register"><button className="btn_nav">Register</button></Link>
                 </div>

@@ -5,8 +5,6 @@ const ListingPublish = (props) => {
   const id = props.name;
   const url = 'http://localhost:5005/listings/publish/' + id;
   const token = localStorage.token;
-  console.log('zheshiid', id);
-  console.log('zheshi waibu url', url);
   const publishListing = () => {
     fetch(url, {
       method: 'PUT',
@@ -16,7 +14,10 @@ const ListingPublish = (props) => {
       },
       body: JSON.stringify({
         availability: [
-          {}
+          {
+            start_date: '1',
+            end_date: '2',
+          }
         ],
       })
     })
@@ -27,7 +28,6 @@ const ListingPublish = (props) => {
           return;
         }
         console.log(data);
-        // navigate('/listings', { replace: true });
         window.location.href = '/listings';
       });
   };

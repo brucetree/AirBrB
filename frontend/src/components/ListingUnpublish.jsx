@@ -1,21 +1,15 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom'
-// import { useParams } from 'react-router-dom';
-const ListingDelete = (props) => {
-  // const params = useParams();
-  // const id = params.listingId.toString();
-  // eslint-disable-next-line react/prop-types
-  // const navigate = useNavigate();
+import '../css/Buttons.css';
+const ListingUnpublish = (props) => {
   // eslint-disable-next-line react/prop-types
   const id = props.name;
-  const url = 'http://localhost:5005/listings/' + id;
+  const url = 'http://localhost:5005/listings/unpublish/' + id;
   const token = localStorage.token;
   console.log('zheshiid', id);
   console.log('zheshi waibu url', url);
-  const deleteListing = () => {
-    console.log('zheshi neibu url', url);
+  const unpublishListing = () => {
     fetch(url, {
-      method: 'DELETE',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token,
@@ -24,7 +18,7 @@ const ListingDelete = (props) => {
       .then(r => r.json())
       .then(data => {
         if (data.error) {
-          alert('delete fails');
+          alert('unpublish fails');
           return;
         }
         console.log(data);
@@ -33,8 +27,8 @@ const ListingDelete = (props) => {
       });
   };
   return <>
-        <button onClick={deleteListing}>Delete</button>
+        <button className="btn100" onClick={unpublishListing}>Unpublish</button>
     </>;
 }
 
-export default ListingDelete;
+export default ListingUnpublish;

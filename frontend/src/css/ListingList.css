@@ -1,0 +1,69 @@
+.listing_list_page{
+    width: 1200px;
+    margin: 10px auto;
+    background: blue;
+}
+
+@media screen and (max-width: 700px) {
+    .listing_list_page {
+        width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.listing_card{
+    width: 388px;
+    margin: 6px;
+    height: 640px;
+    background: white;
+    border: 2px solid black;
+    float: left;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.listing_card_line{
+    width: 180px;
+    padding-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    overflow: hidden;
+    color: black;
+    float: left;
+}
+
+.listing_card_line.title{
+    width: 384px;
+    padding-left: 0px;
+    margin-bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    background: #777777;
+    float: left;
+}
+
+.listing_card_line_tag{
+    width: 75px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 5px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    color: black;
+    background: #cdcdcd;
+    float: left;
+}
+
+.listing_card_img{
+    width: 384px;
+    height: 384px;
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+}

@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import '../css/Buttons.css';
 
 const NavBar = () => {
-  if (localStorage.getItem('token')) {
+  if (localStorage.getItem('token') != null) {
     return (
                 <div className="nav_bar">
                     <img src={logo} className="logo" />

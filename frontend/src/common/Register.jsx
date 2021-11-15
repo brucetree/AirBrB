@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/LogRegister.css'
 const Register = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -38,13 +39,24 @@ const Register = () => {
         window.location.href = '/';
       });
   };
-  return <>
-      Name: <input type="text" value={name} onChange={ event => { setName(event.target.value) } }/><br/>
-        Email: <input type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/><br/>
-        Password: <input type="text" value={password} onChange={ event => { setPassword(event.target.value) } }/><br/>
-      ConfirmPassword: <input type="text" value={confirmpassword} onChange={ event => { setConfirmpassword(event.target.value) } }/><br/>
-        <button onClick={registerFunction}>Register</button>
-    </>;
+  return <div className='log_register_page r'>
+        <div className='log_register_line title'>
+            REGISTER
+        </div>
+        <div className='log_register_line'>
+            <div className='log_register_tag'>Email:</div> <input type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/>
+        </div>
+        <div className='log_register_line'>
+            <div className='log_register_tag'>Name:</div> <input type="text" value={name} onChange={ event => { setName(event.target.value) } }/>
+        </div>
+        <div className='log_register_line'>
+            <div className='log_register_tag'>Password:</div> <input type="password" value={password} onChange={ event => { setPassword(event.target.value) } }/>
+        </div>
+        <div className='log_register_line'>
+            <div className='log_register_tag'>Confirm:</div> <input type="password" value={confirmpassword} onChange={ event => { setConfirmpassword(event.target.value) } }/>
+        </div>
+        <button onClick={registerFunction} className='lr_btn'>Register</button>
+    </div>;
 }
 
 export default Register;

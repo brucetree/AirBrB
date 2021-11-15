@@ -4,8 +4,6 @@ import '../css/Home.css'
 import HomeCard from '../components/HomeItems.jsx';
 
 const Home = () => {
-  localStorage.search_title = '';
-  localStorage.search_location = '';
   const [listings, setListings] = React.useState([]);
   listings.sort(function (a, b) {
     const nameA = a.title.toUpperCase(); // ignore upper and lowercase

@@ -1,6 +1,6 @@
 import React from 'react';
-import './login.css'
-import logo from '../components/logo.svg';
+import '../css/LogRegister.css'
+
 const Login = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -18,7 +18,7 @@ const Login = () => {
       .then(r => r.json())
       .then(data => {
         if (data.error) {
-          alert('login fails');
+          alert(data.error);
           return;
         }
         console.log('zheshi data', data);
@@ -30,18 +30,17 @@ const Login = () => {
       });
   };
   return <>
-      <div className={'newcontainer'}>
-          <div className={'right-container'}>
-              <div className={'icon'}>
-                  <img src={logo} className={'title-img'}/>
-                      <p className={'title'}>Login</p>
+      <div className='log_register_page l'>
+          <div className='log_register_line title'>
+              LOG IN
+          </div>
+              <div className='log_register_line'>
+                  <div className='log_register_tag'>Email:</div> <input className={'login-input'} type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/>
               </div>
-              <div className={'register-area'}>
-                  Email: <input className={'login-input'} type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/><br/>
-                  Password: <input className={'login-input'} type="text" value={password} onChange={ event => { setPassword(event.target.value) } }/><br/>
-                  <button onClick={loginFunction} className={'register-button'}>Login</button>
+              <div className='log_register_line'>
+                  <div className='log_register_tag'>Password:</div> <input className={'login-input'} type="password" value={password} onChange={ event => { setPassword(event.target.value) } }/>
               </div>
-      </div>
+              <button onClick={loginFunction} className='lr_btn'>Login</button>
       </div>
     </>;
 }

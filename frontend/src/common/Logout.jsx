@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/Buttons.css';
+import '../css/Logout.css';
 const Logout = () => {
   const logoutFunction = () => {
     const token = localStorage.token;
@@ -13,8 +15,8 @@ const Logout = () => {
       .then(data => {
         if (data.error) {
           alert('logout fails');
-          localStorage.token = {};
-          localStorage.email = {};
+          localStorage.token = null;
+          localStorage.email = null;
           window.location.href = '/common/login';
           return;
         }
@@ -26,9 +28,9 @@ const Logout = () => {
         // console.log(typeof localStorage.token);
       });
   };
-  return <>
-        <button onClick={logoutFunction}>Logout</button>
-    </>;
+  return <div className='log_out_page'>
+        <button className='log_out_btn' onClick={logoutFunction}>Logout</button>
+    </div>;
 }
 
 export default Logout;

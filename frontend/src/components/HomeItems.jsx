@@ -19,11 +19,13 @@ const HomeCard = (props) => {
   const [reviews, setReviews] = React.useState([]);
   const [thumbnail, setThumbnail] = React.useState([]);
   const [address, setAddress] = React.useState([]);
+  const [price, setPrice] = React.useState([]);
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + props.value)
       .then(r => r.json())
       .then(data => {
         // setOwner(data.listing.owner);
+        setPrice(data.listing.price);
         setPublished(data.listing.published);
         setTitle(data.listing.title);
         setReviews(data.listing.reviews.length);
@@ -37,7 +39,7 @@ const HomeCard = (props) => {
   const sLocation = getQueryVariable('search_location');
   if (published === true) {
     if ((sTitle === '' || title.indexOf(sTitle) !== -1) && (sLocation === '' || address.indexOf(sLocation) !== -1)) {
-      return <a href={url}><HomeCardInfo title={title} reviews={reviews} thumbnail={thumbnail}/></a>;
+      return <a href={url}><HomeCardInfo title={title} reviews={reviews} thumbnail={thumbnail} address={address} price={price}/></a>;
     }
   }
   return (
@@ -52,6 +54,8 @@ const HomeCardInfo = (props) => {
       <HomeCardImg thumbnail={props.thumbnail}/>
       <HomeCardTitle value={props.title}/>
       <HomeCardLine title='Reviews' value={props.reviews}/>
+      <HomeCardLine title='Price' value={props.price}/>
+      <HomeCardLine title='Address' value={props.address}/>
     </div>
   );
 }
@@ -101,6 +105,8 @@ HomeCardInfo.propTypes = {
   title: PropTypes.string,
   reviews: PropTypes.string,
   thumbnail: PropTypes.string,
+  price: PropTypes.string,
+  address: PropTypes.string,
 }
 
 export default HomeCard;

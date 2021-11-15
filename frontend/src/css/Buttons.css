@@ -45,3 +45,15 @@
         cursor: pointer;
     }
 }
+
+.log_out_btn{
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    color: white;
+    background: #f58220;
+    cursor: pointer;
+    float: center;
+}

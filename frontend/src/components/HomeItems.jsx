@@ -14,12 +14,15 @@ function getQueryVariable (variable) {
 }
 
 const HomeCard = (props) => {
-  const [published, setPublished] = React.useState([]);
-  const [title, setTitle] = React.useState([]);
-  const [reviews, setReviews] = React.useState([]);
-  const [thumbnail, setThumbnail] = React.useState([]);
-  const [address, setAddress] = React.useState([]);
-  const [price, setPrice] = React.useState([]);
+  const [published, setPublished] = React.useState(false);
+  const [title, setTitle] = React.useState('');
+  const [reviews, setReviews] = React.useState('');
+  const [thumbnail, setThumbnail] = React.useState('');
+  const [address, setAddress] = React.useState('');
+  const [addressLocation, setAddressLocation] = React.useState('');
+  const [addressCity, setAddressCity] = React.useState('');
+  const [addressState, setAddressState] = React.useState('');
+  const [price, setPrice] = React.useState('');
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + props.value)
       .then(r => r.json())
@@ -30,16 +33,22 @@ const HomeCard = (props) => {
         setTitle(data.listing.title);
         setReviews(data.listing.reviews.length);
         setThumbnail(data.listing.thumbnail);
-        setAddress(data.listing.address);
+        setAddressLocation(data.listing.address.location);
+        setAddressCity(data.listing.address.city);
+        setAddressState(data.listing.address.state);
+        setAddress(data.listing.address.location + data.listing.address.city + data.listing.address.state);
       }
       );
   }, []);
   const url = '../listing/detail/' + props.value;
   const sTitle = getQueryVariable('search_title');
-  const sLocation = getQueryVariable('search_location');
+  const sCity = getQueryVariable('search_city');
   if (published === true) {
-    if ((sTitle === '' || title.indexOf(sTitle) !== -1) && (sLocation === '' || address.indexOf(sLocation) !== -1)) {
-      return <a href={url}><HomeCardInfo title={title} reviews={reviews} thumbnail={thumbnail} address={address} price={price}/></a>;
+    console.log(addressLocation);
+    console.log(address);
+    console.log(addressState);
+    if ((sTitle === '' || title.indexOf(sTitle) !== -1) && (sCity === '' || addressCity.indexOf(sCity) !== -1)) {
+      return <a href={url}><HomeCardInfo title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
     }
   }
   return (
@@ -55,7 +64,7 @@ const HomeCardInfo = (props) => {
       <HomeCardTitle value={props.title}/>
       <HomeCardLine title='Reviews' value={props.reviews}/>
       <HomeCardLine title='Price' value={props.price}/>
-      <HomeCardLine title='Address' value={props.address}/>
+      <HomeCardLine title='City' value={props.address}/>
     </div>
   );
 }

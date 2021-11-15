@@ -28,6 +28,11 @@
     cursor: pointer;
 }
 
+.home_search_btn:hover{
+    color: white;
+    background: #1d953f;
+}
+
 @media screen and (max-width: 700px) {
     .home_search_bar{
         width: 400px;
@@ -39,7 +44,7 @@
     }
 
     .home_search_bar input{
-        width: 120px;
+        width: 100px;
         height: 30px;
     }
 

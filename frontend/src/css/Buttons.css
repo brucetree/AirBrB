@@ -62,3 +62,25 @@
     color: white;
     background: #f58220;
 }
+
+.create_edit_btn{
+    width: 180px;
+    margin: 10px;
+    margin-top: 20px;
+    height: 30px;
+    border: 1px solid black;
+    color: black;
+    background: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.create_edit_btn.g:hover{
+    color: white;
+    background: #1d953f;
+}
+
+.create_edit_btn.y:hover{
+    color: white;
+    background: #f58220;
+}

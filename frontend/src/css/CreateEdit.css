@@ -1,0 +1,32 @@
+.create_edit_page{
+    width: 800px;
+    margin: 10px auto;
+}
+
+.create_edit_line{
+    white-space: pre;
+    width: 780px;
+    float: left;
+    color: black;
+    background: white;
+    line-height: 40px;
+    font-size: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.create_edit_line.e{
+    border-bottom: 1px solid black;
+}
+
+.create_edit_line.title{
+    line-height: 60px;
+    text-align: center;
+    background: #909090;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}

@@ -21,7 +21,7 @@ const ListingDetail = () => {
       .then(data => {
         setOwner(data.listing.owner);
         setTitle(data.listing.title);
-        setAddress(data.listing.address);
+        setAddress(data.listing.address.location + ', ' + data.listing.address.city + ', ' + data.listing.address.state);
         setThumbnail(data.listing.thumbnail);
         setBedrooms(data.listing.metadata.bedrooms);
         setBathrooms(data.listing.metadata.bathrooms);

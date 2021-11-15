@@ -40,8 +40,12 @@ const SearchForm = (props) => {
     Tips : Property will not be filtered if nothing is added to the input box )
     <form>
       Title : <input name='search_title'/>
-      Location : <input name='search_location'/>
-      <button type='submit' className='home_search_btn'>Search</button>
+      City : <input name='search_city'/> <br/>
+      Price(Min) : <input name='search_price_min'/>
+      Price(Max) : <input name='search_price_max'/>
+      Bedrooms(Min) <input name='search_bedrooms_min'/>
+      Bedrooms(Max) <input name='search_bedrooms_max'/>
+      <br/><button type='submit' className='home_search_btn'>Search</button>
     </form>
     </div>
   );

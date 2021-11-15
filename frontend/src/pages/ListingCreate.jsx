@@ -10,7 +10,7 @@ const ListingCreate = () => {
   const [bedrooms, setBedrooms] = React.useState(0);
   const [bathrooms, setBathrooms] = React.useState(0);
   const [bedroomsList, setBedroomsList] = React.useState([]);
-  const [type, setType] = React.useState('1');
+  const [type, setType] = React.useState('Entire');
   const [thumbnail, setThumbnail] = React.useState('');
   const uploadImg = (url) => {
     setThumbnail(url);
@@ -129,7 +129,7 @@ const ListingCreate = () => {
     {bedroomsList.map((b, idx) => {
       const i = idx + 1;
       return <div key={idx} className='create_edit_line'><>Number of beds in bedroom {i}    </>
-      <select idx={idx} state={b} onChange={updateBedroom}>
+      <select idx={idx} value={b} onChange={(e) => updateBedroom(idx, e.target.value)}>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

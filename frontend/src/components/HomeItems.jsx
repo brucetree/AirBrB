@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import '../css/Home.css'
 
 function getQueryVariable (variable) {
-  var query = window.location.search.substring(1);
-  var vars = query.split('&');
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split('=');
+  const query = window.location.search.substring(1);
+  const vars = query.split('&');
+  for (let i = 0; i < vars.length; i++) {
+    const pair = vars[i].split('=');
     if (pair[0] === variable) { return pair[1]; }
   }
   return ('');
@@ -23,6 +23,14 @@ const HomeCard = (props) => {
   const [addressCity, setAddressCity] = React.useState('');
   const [addressState, setAddressState] = React.useState('');
   const [price, setPrice] = React.useState('');
+  const [beds, setBeds] = React.useState(0);
+  const countBeds = (l) => {
+    let c = 0;
+    for (const i in l) {
+      c = c + parseInt(l[i]);
+    }
+    setBeds(c);
+  }
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + props.value)
       .then(r => r.json())
@@ -37,6 +45,7 @@ const HomeCard = (props) => {
         setAddressCity(data.listing.address.city);
         setAddressState(data.listing.address.state);
         setAddress(data.listing.address.location + data.listing.address.city + data.listing.address.state);
+        countBeds(data.listing.metadata.bedroomsList);
       }
       );
   }, []);
@@ -47,8 +56,9 @@ const HomeCard = (props) => {
     console.log(addressLocation);
     console.log(address);
     console.log(addressState);
+    console.log(beds);
     if ((sTitle === '' || title.indexOf(sTitle) !== -1) && (sCity === '' || addressCity.indexOf(sCity) !== -1)) {
-      return <a href={url}><HomeCardInfo title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
+      return <a href={url}><HomeCardInfo beds={beds} title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
     }
   }
   return (
@@ -65,6 +75,7 @@ const HomeCardInfo = (props) => {
       <HomeCardLine title='Reviews' value={props.reviews}/>
       <HomeCardLine title='Price' value={props.price}/>
       <HomeCardLine title='City' value={props.address}/>
+      <HomeCardLine title='Beds' value={props.beds}/>
     </div>
   );
 }
@@ -116,6 +127,7 @@ HomeCardInfo.propTypes = {
   thumbnail: PropTypes.string,
   price: PropTypes.string,
   address: PropTypes.string,
+  beds: PropTypes.string,
 }
 
 export default HomeCard;

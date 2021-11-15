@@ -8,20 +8,38 @@ import { Link } from 'react-router-dom';
 import '../css/Buttons.css';
 
 const ListingCard = (props) => {
+  const thumbnail = props.thumbnail;
+  const price = props.price + '';
+  if (props.published === true) {
+    return (
+      <div className = "listing_card">
+        <ListingCardImg thumbnail = {thumbnail}/>
+        <ListingCardTitle value = {props.title}/>
+        <ListingCardLine title = "Price" value = {price}/>
+        <ListingCardLine title = "Type" value = {props.type}/>
+        <ListingCardLine title = "Bathrooms" value = {props.bathrooms}/>
+        <ListingCardLine title = "Beds" value = {props.beds}/>
+        <ListingCardLine title = "Reviews" value = {props.reviews}/>
+        <ListingCardLine title = "Rating" value = '没做好'/>
+        <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
+        <ListingDelete name = {props.id}/>
+        <ListingUnpublish name = {props.id}/>
+      </div>
+    );
+  }
   return (
     <div className = "listing_card">
-      <ListingCardImg thumbnail = {props.thumbnail}/>
+      <ListingCardImg thumbnail = {thumbnail}/>
       <ListingCardTitle value = {props.title}/>
-      <ListingCardLine title = "Price" value = {props.price}/>
+      <ListingCardLine title = "Price" value = {price}/>
       <ListingCardLine title = "Type" value = {props.type}/>
       <ListingCardLine title = "Bathrooms" value = {props.bathrooms}/>
-      <ListingCardLine title = "Beds" value = '没做好'/>
+      <ListingCardLine title = "Beds" value = {props.beds}/>
       <ListingCardLine title = "Reviews" value = {props.reviews}/>
       <ListingCardLine title = "Rating" value = '没做好'/>
       <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
       <ListingDelete name = {props.id}/>
       <ListingPublish name = {props.id}/>
-      <ListingUnpublish name = {props.id}/>
     </div>
   );
 }
@@ -63,13 +81,15 @@ ListingCard.propTypes = {
   id: PropTypes.string,
   thumbnail: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   address: PropTypes.string,
   type: PropTypes.string,
   reviews: PropTypes.string,
   bedrooms: PropTypes.string,
-  bathrooms: PropTypes.string,
+  bathrooms: PropTypes.number,
   urlEdit: PropTypes.string,
+  beds: PropTypes.number,
+  published: PropTypes.string,
 }
 
 ListingCardImg.propTypes = {

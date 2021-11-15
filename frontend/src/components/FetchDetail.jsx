@@ -7,16 +7,22 @@ const FetchDetail = (props) => {
   // eslint-disable-next-line react/prop-types
   const id = props.name;
   const urlEdit = '/listing/edit/' + props.name;
-  // const token = localStorage.token;
-  // const [owner, setOwner] = React.useState([]);
   const [title, setTitle] = React.useState([]);
   const [type, setType] = React.useState([]);
   const [price, setPrice] = React.useState([]);
-  // const [bedrooms, setBedrooms] = React.useState([]);
   const [bathrooms, setBathrooms] = React.useState([]);
-  // const [address, setAddress] = React.useState([]);
   const [reviews, setReviews] = React.useState([]);
   const [thumbnail, setThumbnail] = React.useState([]);
+  const [published, setPublished] = React.useState([]);
+  // const [bedroomsList, setBedroomsList] = React.useState([]);
+  const [beds, setBeds] = React.useState(0);
+  const countBeds = (l) => {
+    let c = 0;
+    for (const i in l) {
+      c = c + parseInt(l[i]);
+    }
+    setBeds(c);
+  }
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + id)
       .then(r => r.json())
@@ -26,14 +32,17 @@ const FetchDetail = (props) => {
         // setAddress(data.listing.address);
         setThumbnail(data.listing.thumbnail);
         // setBedrooms(data.listing.metadata.bedrooms);
+        // setBedroomsList(data.listing.metadata.bedroomsList);
         setBathrooms(data.listing.metadata.bathrooms);
         setType(data.listing.metadata.type);
         setPrice(data.listing.price);
         setReviews(data.listing.reviews);
+        countBeds(data.listing.metadata.bedroomsList);
+        setPublished(data.listing.published);
       }
       );
   }, []);
-  return <ListingCard
+  return <><ListingCard
     title = {title}
     bathrooms = {bathrooms}
     type = {type}
@@ -42,7 +51,10 @@ const FetchDetail = (props) => {
     thumbnail = {thumbnail}
     id = {id}
     urlEdit = {urlEdit}
-    />;
+    beds = {beds}
+    published = {published}
+    />
+    </>;
 }
 
 FetchDetail.propTypes = {

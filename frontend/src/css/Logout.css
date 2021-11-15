@@ -6,3 +6,10 @@
     background: #cdcdcd;
     text-align: center;
 }
+
+@media screen and (max-width: 700px) {
+    .log_out_page{
+        width: 400px;
+        margin: 0 auto;
+    }
+}

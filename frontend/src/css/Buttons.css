@@ -52,8 +52,13 @@
     font-size: 24px;
     border-radius: 10px 10px 10px 10px;
     border: none;
-    color: white;
-    background: #f58220;
+    color: black;
+    background: white;
     cursor: pointer;
     float: center;
+}
+
+.log_out_btn:hover{
+    color: white;
+    background: #f58220;
 }

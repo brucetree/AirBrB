@@ -111,3 +111,64 @@
     background: #cdcdcd;
     float: left;
 }
+
+@media screen and (max-width: 700px) {
+
+    .home_card{
+        width: 380px;
+        float: left;
+        margin: 10px;
+        height: 600px;
+        border: 1px solid black;
+    }
+
+    .home_card_img{
+        margin: 10px;
+        float: left;
+        width: 360px;
+        height: 360px;
+    }
+
+
+    .home_card_line{
+        width: 380px;
+        padding-left: 10px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        overflow: hidden;
+        color: black;
+        float: left;
+    }
+
+    .home_card_line.title{
+        width: 380px;
+        margin-top: 10px;
+        padding-left: 0px;
+        margin-bottom: 10px;
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        font-weight: bold;
+        background: #777777;
+        float: left;
+    }
+
+    .home_card_line_tag{
+        width: 75px;
+        height: 30px;
+        margin-right: 20px;
+        margin-top: 5px;
+        line-height: 30px;
+        font-size: 14px;
+        text-align: center;
+        overflow: hidden;
+        color: black;
+        background: #cdcdcd;
+        float: left;
+    }
+
+}

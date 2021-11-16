@@ -2,11 +2,15 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/Detail.css';
 import DetailInfo from '../components/DetailPageItems.jsx';
+import Booking from '../components/Booking';
+import BookingOrnot from '../components/BookingOrnot';
+// import Review from '../components/Review';
 
 const ListingDetail = () => {
   const params = useParams();
   let id = '';
   id = params.listingId.toString();
+  console.log(id);
   const [owner, setOwner] = React.useState([]);
   const [title, setTitle] = React.useState([]);
   const [type, setType] = React.useState([]);
@@ -30,7 +34,8 @@ const ListingDetail = () => {
       }
       );
   }, []);
-  return <DetailInfo
+  return <>
+    <DetailInfo
     owner = {owner}
     title = {title}
     price = {price}
@@ -38,6 +43,9 @@ const ListingDetail = () => {
     type = {type}
     bathrooms = {bathrooms}
     bedrooms = {bedrooms}
-    thumbnail = {thumbnail}/>;
+    thumbnail = {thumbnail}/>
+      <Booking price={price} name={id}/>
+      <BookingOrnot listingid={id}/>
+      </>;
 }
 export default ListingDetail;

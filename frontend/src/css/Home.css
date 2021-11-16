@@ -19,20 +19,6 @@
     margin-right: 10px;
 }
 
-.home_search_btn{
-    width: 60px;
-    height: 30px;
-    color: black;
-    background: white;
-    border: 1px solid black;
-    cursor: pointer;
-}
-
-.home_search_btn:hover{
-    color: white;
-    background: #1d953f;
-}
-
 @media screen and (max-width: 700px) {
     .home_search_bar{
         width: 400px;
@@ -45,11 +31,6 @@
 
     .home_search_bar input{
         width: 100px;
-        height: 30px;
-    }
-
-    .home_search_btn{
-        width: 60px;
         height: 30px;
     }
 
@@ -123,7 +104,7 @@
         width: 380px;
         float: left;
         margin: 10px;
-        height: 640px;
+        height: 660px;
         border: 1px solid black;
     }
 

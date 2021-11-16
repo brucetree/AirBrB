@@ -18,12 +18,12 @@ const HomeCard = (props) => {
   const [title, setTitle] = React.useState('');
   const [reviews, setReviews] = React.useState('');
   const [thumbnail, setThumbnail] = React.useState('');
-  const [address, setAddress] = React.useState('');
   const [addressLocation, setAddressLocation] = React.useState('');
   const [addressCity, setAddressCity] = React.useState('');
   const [addressState, setAddressState] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [beds, setBeds] = React.useState(0);
+  const [bedrooms, setBedrooms] = React.useState(0);
   const countBeds = (l) => {
     let c = 0;
     for (const i in l) {
@@ -44,7 +44,7 @@ const HomeCard = (props) => {
         setAddressLocation(data.listing.address.location);
         setAddressCity(data.listing.address.city);
         setAddressState(data.listing.address.state);
-        setAddress(data.listing.address.location + data.listing.address.city + data.listing.address.state);
+        setBedrooms(data.listing.metadata.bedroomsList.length);
         countBeds(data.listing.metadata.bedroomsList);
       }
       );
@@ -52,14 +52,37 @@ const HomeCard = (props) => {
   const url = '../listing/detail/' + props.value;
   const sTitle = getQueryVariable('search_title');
   const sCity = getQueryVariable('search_city');
+  let sPriceMin = getQueryVariable('search_price_min');
+  let sPriceMax = getQueryVariable('search_price_max');
+  sPriceMax = parseInt(sPriceMax);
+  sPriceMin = parseInt(sPriceMin);
+  let sBedroomsMin = getQueryVariable('search_bedrooms_min');
+  let sBedroomsMax = getQueryVariable('search_bedrooms_max');
+  sBedroomsMax = parseInt(sBedroomsMax);
+  sBedroomsMin = parseInt(sBedroomsMin);
+  if (addressLocation === '123' && addressState === '123' && beds === '') {
+    console.log('h1');
+  }
   if (published === true) {
-    console.log(addressLocation);
-    console.log(address);
-    console.log(addressState);
-    console.log(beds);
-    if ((sTitle === '' || title.indexOf(sTitle) !== -1) && (sCity === '' || addressCity.indexOf(sCity) !== -1)) {
-      return <a href={url}><HomeCardInfo beds={beds} title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
+    if (sTitle !== '' && title.indexOf(sTitle) === -1) {
+      return <></>;
     }
+    if (sCity !== '' && addressCity.indexOf(sCity) === -1) {
+      return <></>;
+    }
+    if (isNaN(sPriceMax) === false && price > sPriceMax) {
+      return <></>;
+    }
+    if (isNaN(sPriceMin) === false && price < sPriceMin) {
+      return <></>;
+    }
+    if (isNaN(sBedroomsMax) === false && bedrooms > sBedroomsMax) {
+      return <></>;
+    }
+    if (isNaN(sBedroomsMin) === false && bedrooms < sBedroomsMin) {
+      return <></>;
+    }
+    return <a href={url}><HomeCardInfo bedrooms={bedrooms} beds={beds} title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
   }
   return (
     <>
@@ -72,10 +95,11 @@ const HomeCardInfo = (props) => {
     <div className = "home_card">
       <HomeCardImg thumbnail={props.thumbnail}/>
       <HomeCardTitle value={props.title}/>
-      <HomeCardLine title='Reviews' value={props.reviews}/>
       <HomeCardLine title='Price' value={props.price}/>
       <HomeCardLine title='City' value={props.address}/>
+      <HomeCardLine title='Bedrooms' value={props.bedrooms}/>
       <HomeCardLine title='Beds' value={props.beds}/>
+      <HomeCardLine title='Reviews' value={props.reviews}/>
     </div>
   );
 }
@@ -127,6 +151,7 @@ HomeCardInfo.propTypes = {
   thumbnail: PropTypes.string,
   price: PropTypes.string,
   address: PropTypes.string,
+  bedrooms: PropTypes.string,
   beds: PropTypes.string,
 }
 

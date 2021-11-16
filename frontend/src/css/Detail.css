@@ -42,7 +42,7 @@
     float: left;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .detail_area{
         width: 380px;
         margin: 8px;
@@ -52,6 +52,7 @@
     .detail_area.r{
         width: 380px;
         margin: 8px;
+        float: left;
     }
 
     .detail_line{

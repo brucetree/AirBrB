@@ -105,11 +105,11 @@ const ListingCreate = () => {
   <div className='create_edit_line title'>Creating Listing</div>
   <div className='create_edit_line'>Title:     <input type="text" value={title} onChange={ event => { setTitle(event.target.value) } }/><br/>
   </div>
-  <div className='create_edit_line'>Location: <input type="text" value={addressLocation} onChange={ event => { setAddressLocation(event.target.value) } }/><br/>
+  <div className='create_edit_line'>Address(Location): <input type="text" value={addressLocation} onChange={ event => { setAddressLocation(event.target.value) } }/><br/>
   </div>
-  <div className='create_edit_line'>City: <input type="text" value={addressCity} onChange={ event => { setAddressCity(event.target.value) } }/><br/>
+  <div className='create_edit_line'>Address(City): <input type="text" value={addressCity} onChange={ event => { setAddressCity(event.target.value) } }/><br/>
   </div>
-  <div className='create_edit_line'>State: <input type="text" value={addressState} onChange={ event => { setAddressState(event.target.value) } }/><br/>
+  <div className='create_edit_line'>Address(State): <input type="text" value={addressState} onChange={ event => { setAddressState(event.target.value) } }/><br/>
   </div>
   <div className='create_edit_line'>Price:     <input type="text" value={price} onChange={ event => { setPrice(event.target.value) } }/><br/>
   </div>

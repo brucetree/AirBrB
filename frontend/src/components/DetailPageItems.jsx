@@ -1,7 +1,9 @@
 import React from 'react';
 import '../css/Detail.css';
 import PropTypes from 'prop-types';
+
 const DetailInfo = (props) => {
+  const bedrooms = props.bedroomsList.length;
   return (
     <div className = "detail_page">
         <div className = "detail_area">
@@ -14,7 +16,7 @@ const DetailInfo = (props) => {
           <DetailInfoLine title = "Address" value = {props.address}/>
           <DetailInfoLine title = "Type" value = {props.type}/>
           <DetailInfoLine title = "Bathrooms" value = {props.bathrooms}/>
-          <DetailInfoLine title = "Bedrooms" value = {props.bedrooms}/>
+          <DetailInfoLine title = "Bedrooms" value = {bedrooms}/>
         </div>
     </div>
   );
@@ -45,6 +47,7 @@ const DetailInfoImg = (props) => {
 }
 
 DetailInfo.propTypes = {
+  id: PropTypes.string,
   owner: PropTypes.string,
   thumbnail: PropTypes.string,
   title: PropTypes.string,
@@ -52,7 +55,7 @@ DetailInfo.propTypes = {
   address: PropTypes.string,
   type: PropTypes.string,
   bathrooms: PropTypes.string,
-  bedrooms: PropTypes.string,
+  bedroomsList: PropTypes.array,
 }
 
 DetailInfoTitle.propTypes = {

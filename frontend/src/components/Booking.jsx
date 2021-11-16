@@ -3,6 +3,7 @@ import '../css/Buttons.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
+import '../css/Detail.css';
 const Booking = (props) => {
   // eslint-disable-next-line react/prop-types
   const id = props.name;
@@ -27,6 +28,14 @@ const Booking = (props) => {
   const bookingFunction = () => {
     if (!token) {
       window.location.href = '/common/login';
+      return;
+    }
+    if (startDate === null) {
+      alert('date can not be null');
+      return;
+    }
+    if (endDate === null) {
+      alert('date can not be null');
       return;
     }
     fetch(url, {
@@ -65,7 +74,7 @@ const Booking = (props) => {
       }
       )
   };
-  return <>
+  return <>Select Dates: <div className='detail_line'>
     <DatePicker
         selectsRange={true}
         startDate={startDate}
@@ -76,11 +85,12 @@ const Booking = (props) => {
         }}
         isClearable={true}
     />
+    </div>
         {/* StartDate:<input type="text" value={StartDate} onChange={ event => { setStartDate(event.target.value) } }/><br/> */}
         {/* EndDate:<input type="text" value={EndDate} onChange={ event => { setEndDate(event.target.value) } }/><br/> */}
     {/* eslint-disable-next-line react/prop-types */}
       <p>TotalPrice: {dateNum} X {props.price} = {dateNum * props.price}</p>
-        <button className="btn100" onClick={bookingFunction}>Booking</button>
+        <button className="book_btn" onClick={bookingFunction}>Booking</button>
     </>;
 }
 

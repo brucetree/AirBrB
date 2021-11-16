@@ -10,12 +10,6 @@ const BookingOrnot = (props) => {
   const [listings, setListings] = React.useState([]);
   const [booked, setBooked] = React.useState(false);
   const [booingid, setBookingid] = React.useState('');
-  // (<>not book</>);
-
-  // if (!token) {
-  //     window.location.href = '/common/login';
-  //     return;
-  // }
   console.log('----------');
   React.useEffect(() => {
     fetch(url, {
@@ -56,12 +50,12 @@ const BookingOrnot = (props) => {
   console.log(listings, booked);
   let symbol;
   if (booked === true) {
-    symbol = (<>
+    symbol = (<><br/>
       <p>booked!</p>
       <Review listingid={id} bookingid={booingid}/>
     </>);
   } else {
-    symbol = (<>not book</>);
+    symbol = (<><br/><br/>You have not booked yet</>);
   }
   return <>
     {symbol}

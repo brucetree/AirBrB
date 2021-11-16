@@ -31,6 +31,11 @@
     border-radius: 10px 10px 10px 10px;
 }
 
+.detail_area.h{
+    height: 200px;
+    overflow-y: auto;
+}
+
 .detail_line{
     width: 780px;
     padding-left: 30px;
@@ -92,4 +97,65 @@
     height: 380px;
     overflow: hidden;
     border-radius: 10px 10px 10px 10px;
+}
+
+.bedroom_card {
+    width: 175px;
+    height: 125px;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    margin: 10px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    line-height: 100px;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.bedroom_card_line {
+    width: 175px;
+    height: 60px;
+    background: #909090;
+    line-height: 60px;
+    text-align: center;
+    color: white;
+}
+
+.bedroom_card_line.text {
+    background: white;
+    width: 175px;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    color: black;
+}
+
+
+.review_card {
+    width: 350px;
+    float: left;
+    margin: 10px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    line-height: 50px;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.review_card_line {
+    width: 100px;
+    float: left;
+    height: 50px;
+    margin-right: 20px;
+    background: #909090;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+}
+
+.center{
+    text-align: center;
 }

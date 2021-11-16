@@ -19,6 +19,18 @@ const Review = (props) => {
       alert('please book firstly')
       return;
     }
+    if (isNaN(score)) {
+      alert('score should be a number!');
+      return;
+    }
+    if (score > 10 || score < 0) {
+      alert('score should between 0 and 10 !')
+      return;
+    }
+    if (score > 10 || score < 0) {
+      alert('score should between 0 and 10 !')
+      return;
+    }
     const url = 'http://localhost:5005/listings/' + Listid + '/review/' + bookid;
     fetch(url, {
       method: 'PUT',
@@ -49,6 +61,7 @@ const Review = (props) => {
         } else {
           // console.log(data.bookingId);
           alert('review successfully');
+          window.location.href = ('/listing/detail/' + Listid);
         }
       }
       )
@@ -56,7 +69,7 @@ const Review = (props) => {
   return <>
     Please Enter Reviews:<input type="text" value={reviews} onChange={ event => { setReviews(event.target.value) } }/><br/>
     Please Enter Score:<input type="number" value={score} onChange={ event => { setScore(event.target.value) } }/><br/>
-        <button className="btn100" onClick={reviewFunction}>Review</button>
+        <button className="book_btn" onClick={reviewFunction}>Review</button>
     </>;
 }
 

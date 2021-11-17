@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/Detail.css';
 import PropTypes from 'prop-types';
 
-const DetailInfo = (props) => {
+export const DetailInfo = (props) => {
   const bedrooms = props.bedroomsList.length;
   let s = '';
   if (props.rating > 1) {
@@ -40,7 +40,7 @@ const DetailInfo = (props) => {
   );
 }
 
-const DetailInfoTitle = (props) => {
+export const DetailInfoTitle = (props) => {
   return (
     <div className = "detail_line title">
       {props.value}
@@ -102,4 +102,4 @@ DetailInfoLineY.propTypes = {
 DetailInfoImg.propTypes = {
   thumbnail: PropTypes.string,
 }
-export default DetailInfo;
+export default { DetailInfo, DetailInfoTitle };

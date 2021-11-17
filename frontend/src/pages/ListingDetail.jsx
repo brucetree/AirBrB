@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/Detail.css';
-import DetailInfo from '../components/DetailPageItems.jsx';
+import { DetailInfo, DetailInfoTitle } from '../components/DetailPageItems.jsx';
 import PropTypes from 'prop-types';
 import Booking from '../components/Booking';
 import BookingOrnot from '../components/BookingOrnot';
@@ -68,10 +68,12 @@ const ListingDetail = () => {
     })}
     </div>
     <div className = "detail_area r center">
+    <DetailInfoTitle value='Booking'/>
       <Booking price={price} name={id}/>
       <BookingOrnot listingid={id}/>
     </div>
     <div className = "detail_area r">
+    <DetailInfoTitle value='Reviews'/>
     {reviews.map((b, idx) => {
       const s = b.score;
       const r = b.reviews;

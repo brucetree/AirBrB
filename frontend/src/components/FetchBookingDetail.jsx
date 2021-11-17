@@ -24,6 +24,9 @@ const FetchBookingDetail = (props) => {
       );
   }, []);
   let symbol;
+  if (email !== owner) {
+    return <></>;
+  }
   if (email === owner && props.list.status === 'pending') {
     symbol = (<>BookingId:{bookingid}<br/>
       Title:{title}<br/>

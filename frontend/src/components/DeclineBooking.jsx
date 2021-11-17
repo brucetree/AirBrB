@@ -26,7 +26,7 @@ const DeclineBooking = (props) => {
       });
   };
   return <>
-        <button className="btn100" onClick={declinebooking}>Decline</button>
+        <button className="booking_btn" onClick={declinebooking}>Decline</button>
     </>;
 }
 

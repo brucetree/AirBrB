@@ -14,7 +14,7 @@ const FetchDetail = (props) => {
   const [reviews, setReviews] = React.useState([]);
   const [thumbnail, setThumbnail] = React.useState([]);
   const [published, setPublished] = React.useState([]);
-  // const [bedroomsList, setBedroomsList] = React.useState([]);
+  const [rating, setRating] = React.useState(0);
   const [beds, setBeds] = React.useState(0);
   const countBeds = (l) => {
     let c = 0;
@@ -23,16 +23,22 @@ const FetchDetail = (props) => {
     }
     setBeds(c);
   }
+  const countRating = (l) => {
+    let c = 0;
+    for (const i in l) {
+      c = c + parseInt(l[i].score);
+    }
+    if (l.length > 0) {
+      setRating(c / l.length);
+    }
+  }
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + id)
       .then(r => r.json())
       .then(data => {
-        // setOwner(data.listing.owner);
+        countRating(data.listing.reviews);
         setTitle(data.listing.title);
-        // setAddress(data.listing.address);
         setThumbnail(data.listing.thumbnail);
-        // setBedrooms(data.listing.metadata.bedrooms);
-        // setBedroomsList(data.listing.metadata.bedroomsList);
         setBathrooms(data.listing.metadata.bathrooms);
         setType(data.listing.metadata.type);
         setPrice(data.listing.price);
@@ -42,7 +48,8 @@ const FetchDetail = (props) => {
       }
       );
   }, []);
-  return <><ListingCard
+  return <>
+  <ListingCard
     title = {title}
     bathrooms = {bathrooms}
     type = {type}
@@ -53,6 +60,7 @@ const FetchDetail = (props) => {
     urlEdit = {urlEdit}
     beds = {beds}
     published = {published}
+    rating = {rating}
     />
     </>;
 }

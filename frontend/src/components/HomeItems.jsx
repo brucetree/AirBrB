@@ -23,6 +23,7 @@ const HomeCard = (props) => {
   const [addressState, setAddressState] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [beds, setBeds] = React.useState(0);
+  const [rating, setRating] = React.useState(0);
   const [bedrooms, setBedrooms] = React.useState(0);
   const countBeds = (l) => {
     let c = 0;
@@ -30,6 +31,15 @@ const HomeCard = (props) => {
       c = c + parseInt(l[i]);
     }
     setBeds(c);
+  }
+  const countRating = (l) => {
+    let c = 0;
+    for (const i in l) {
+      c = c + parseInt(l[i].score);
+    }
+    if (l.length > 0) {
+      setRating(c / l.length);
+    }
   }
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + props.value)
@@ -46,6 +56,7 @@ const HomeCard = (props) => {
         setAddressState(data.listing.address.state);
         setBedrooms(data.listing.metadata.bedroomsList.length);
         countBeds(data.listing.metadata.bedroomsList);
+        countRating(data.listing.reviews);
       }
       );
   }, []);
@@ -82,7 +93,7 @@ const HomeCard = (props) => {
     if (isNaN(sBedroomsMin) === false && bedrooms < sBedroomsMin) {
       return <></>;
     }
-    return <a href={url}><HomeCardInfo bedrooms={bedrooms} beds={beds} title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
+    return <a href={url}><HomeCardInfo bedrooms={bedrooms} rating={rating} beds={beds} title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;
   }
   return (
     <>
@@ -91,6 +102,23 @@ const HomeCard = (props) => {
 }
 
 const HomeCardInfo = (props) => {
+  let s = '';
+  if (props.rating > 1) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 3) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 5) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 7) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 9) {
+    s = s + '★';
+  } else s = s + '☆';
+  s = s + ' ' + props.rating;
   return (
     <div className = "home_card">
       <HomeCardImg thumbnail={props.thumbnail}/>
@@ -100,6 +128,7 @@ const HomeCardInfo = (props) => {
       <HomeCardLine title='Bedrooms' value={props.bedrooms}/>
       <HomeCardLine title='Beds' value={props.beds}/>
       <HomeCardLine title='Reviews' value={props.reviews}/>
+      <HomeCardLineY title='Rating' value={s}/>
     </div>
   );
 }
@@ -128,11 +157,24 @@ const HomeCardLine = (props) => {
   );
 }
 
+const HomeCardLineY = (props) => {
+  return (
+    <div className = "home_card_line yellow">
+      <div className = "home_card_line_tag">{props.title}</div> {props.value}
+    </div>
+  );
+}
+
 HomeCardTitle.propTypes = {
   value: PropTypes.string,
 }
 
 HomeCardLine.propTypes = {
+  title: PropTypes.string,
+  value: PropTypes.string,
+}
+
+HomeCardLineY.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string,
 }
@@ -153,6 +195,7 @@ HomeCardInfo.propTypes = {
   address: PropTypes.string,
   bedrooms: PropTypes.string,
   beds: PropTypes.string,
+  rating: PropTypes.number,
 }
 
 export default HomeCard;

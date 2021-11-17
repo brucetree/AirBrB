@@ -4,6 +4,23 @@ import PropTypes from 'prop-types';
 
 const DetailInfo = (props) => {
   const bedrooms = props.bedroomsList.length;
+  let s = '';
+  if (props.rating > 1) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 3) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 5) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 7) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 9) {
+    s = s + '★';
+  } else s = s + '☆';
+  s = s + ' ' + props.rating;
   return (
     <div className = "detail_page">
         <div className = "detail_area">
@@ -17,6 +34,7 @@ const DetailInfo = (props) => {
           <DetailInfoLine title = "Type" value = {props.type}/>
           <DetailInfoLine title = "Bathrooms" value = {props.bathrooms}/>
           <DetailInfoLine title = "Bedrooms" value = {bedrooms}/>
+          <DetailInfoLineY title = "Rating" value = {s}/>
         </div>
     </div>
   );
@@ -33,6 +51,14 @@ const DetailInfoTitle = (props) => {
 const DetailInfoLine = (props) => {
   return (
     <div className = "detail_line">
+      <div className = "detail_line_tag">{props.title}</div> {props.value}
+    </div>
+  );
+}
+
+const DetailInfoLineY = (props) => {
+  return (
+    <div className = "detail_line yellow">
       <div className = "detail_line_tag">{props.title}</div> {props.value}
     </div>
   );
@@ -56,6 +82,7 @@ DetailInfo.propTypes = {
   type: PropTypes.string,
   bathrooms: PropTypes.string,
   bedroomsList: PropTypes.array,
+  rating: PropTypes.number,
 }
 
 DetailInfoTitle.propTypes = {
@@ -63,6 +90,11 @@ DetailInfoTitle.propTypes = {
 }
 
 DetailInfoLine.propTypes = {
+  title: PropTypes.string,
+  value: PropTypes.string,
+}
+
+DetailInfoLineY.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string,
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import AcceptBooking from './AcceptBooking';
 import DeclineBooking from './DeclineBooking';
+import PropTypes from 'prop-types';
+import '../css/Booking.css';
 const FetchBookingDetail = (props) => {
   console.log('jinlaile');
   // eslint-disable-next-line react/prop-types
@@ -10,9 +12,7 @@ const FetchBookingDetail = (props) => {
   // eslint-disable-next-line react/prop-types
   const bookingid = props.bookingID;
   const email = localStorage.email;
-  console.log('email', email);
   const [owner, setOwner] = React.useState('');
-  console.log('owner', owner);
   const [title, setTitle] = React.useState('');
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + id)
@@ -24,22 +24,28 @@ const FetchBookingDetail = (props) => {
       );
   }, []);
   let symbol;
-  if (email === owner) {
+  if (email === owner && props.list.status === 'pending') {
     symbol = (<>BookingId:{bookingid}<br/>
       Title:{title}<br/>
-      {/* eslint-disable-next-line react/prop-types */}
       Booking Status:{bookingList.status}<br/>
       <AcceptBooking name={bookingid}/>
       <DeclineBooking name={bookingid}/>
-      <br/>
-      <br/><br/>
-      <hr/>
     </>);
   } else {
-    symbol = (<></>);
+    symbol = (<>BookingId:{bookingid}<br/>
+      Title:{title}<br/>
+      Booking Status:{bookingList.status}<br/>
+    </>);
   }
-  return <>
+  return <div className='booking_card'>
     {symbol}
-  </>
+  </div>
 }
+
+FetchBookingDetail.propTypes = {
+  name: PropTypes.string,
+  bookingID: PropTypes.string,
+  list: PropTypes.array,
+}
+
 export default FetchBookingDetail;

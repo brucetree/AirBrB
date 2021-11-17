@@ -21,10 +21,21 @@ const ListingDetail = () => {
   const [address, setAddress] = React.useState([]);
   const [thumbnail, setThumbnail] = React.useState([]);
   const [reviews, setReviews] = React.useState([]);
+  const [rating, setRating] = React.useState(0);
+  const countRating = (l) => {
+    let c = 0;
+    for (const i in l) {
+      c = c + parseInt(l[i].score);
+    }
+    if (l.length > 0) {
+      setRating(c / l.length);
+    }
+  }
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + id)
       .then(r => r.json())
       .then(data => {
+        countRating(data.listing.reviews);
         setOwner(data.listing.owner);
         setTitle(data.listing.title);
         setAddress(data.listing.address.location + ', ' + data.listing.address.city + ', ' + data.listing.address.state);
@@ -39,6 +50,7 @@ const ListingDetail = () => {
   }, []);
   return <div className = "detail_page">
     <DetailInfo
+    rating = {rating}
     id = {id}
     owner = {owner}
     title = {title}

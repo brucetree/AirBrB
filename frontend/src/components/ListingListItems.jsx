@@ -21,7 +21,7 @@ const ListingCard = (props) => {
         <ListingCardLine title = "Bathrooms" value = {props.bathrooms}/>
         <ListingCardLine title = "Beds" value = {props.beds}/>
         <ListingCardLine title = "Reviews" value = {props.reviews}/>
-        <ListingCardLine title = "Rating" value = ''/>
+        <ListingCardLine title = "Rating" value = {props.rating}/>
         <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
         <ListingDelete name = {props.id}/>
         <ListingUnpublish name = {props.id}/>
@@ -37,7 +37,7 @@ const ListingCard = (props) => {
       <ListingCardLine title = "Bathrooms" value = {props.bathrooms}/>
       <ListingCardLine title = "Beds" value = {props.beds}/>
       <ListingCardLine title = "Reviews" value = {props.reviews}/>
-      <ListingCardLine title = "Rating" value = ''/>
+      <ListingCardLine title = "Rating" value = {props.rating}/>
       <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
       <ListingDelete name = {props.id}/>
       {/* <ListingPublish name = {props.id}/> */}
@@ -92,6 +92,7 @@ ListingCard.propTypes = {
   urlEdit: PropTypes.string,
   beds: PropTypes.number,
   published: PropTypes.string,
+  rating: PropTypes.string,
 }
 
 ListingCardImg.propTypes = {

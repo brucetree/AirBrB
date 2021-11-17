@@ -16,6 +16,23 @@
     color: white;
 }
 
+.booking_btn{
+    width: 112px;
+    height: 25px;
+    margin-left: 8px;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 4px 4px 4px 4px;
+    border: 1px solid black;
+    background: white;
+    color: black;
+}
+
+.booking_btn:hover{
+    background: #f58220;
+    color: white;
+}
+
 .btn_nav{
     width: 120px;
     height: 30px;
@@ -111,6 +128,15 @@
 }
 
 .book_btn:hover{
+    color: white;
+    background: #1d953f;
+}
+
+.request{
+    margin-top: 0px;
+    border-radius: 4px 4px 4px 4px;
+    height: 35px;
+    width: 100px;
     color: white;
     background: #1d953f;
 }

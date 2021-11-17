@@ -66,3 +66,20 @@
     overflow: hidden;
     border-radius: 10px 10px 0px 0px;
 }
+
+.listing_list_title_line{
+    margin-bottom: 15px;
+    width: 1200px;
+    color: black;
+    height: 100px;
+    line-height: 50px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+    .listing_list_title_line{
+        width: 400px;
+    }
+}

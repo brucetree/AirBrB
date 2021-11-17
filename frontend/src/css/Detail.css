@@ -47,6 +47,10 @@
     float: left;
 }
 
+.yellow{
+    color: #f58220;
+}
+
 @media screen and (max-width: 700px) {
     .detail_area{
         width: 380px;

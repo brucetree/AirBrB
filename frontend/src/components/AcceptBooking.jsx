@@ -26,7 +26,7 @@ const AcceptBooking = (props) => {
       });
   };
   return <>
-        <button className="btn100" onClick={acceptbooking}>Accept</button>
+        <button className="booking_btn" onClick={acceptbooking}>Accept</button>
     </>;
 }
 

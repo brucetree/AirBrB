@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/Buttons.css';
+import '../css/Booking.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useParams } from 'react-router-dom';
@@ -50,7 +51,8 @@ const ListingPublish = () => {
   const backbutton = () => {
     window.location.href = '/listings';
   };
-  return <>
+  return <div className='booking_page center'>
+    select dates: <br/>
     <DatePicker
         selectsRange={true}
         startDate={startDate}
@@ -60,9 +62,9 @@ const ListingPublish = () => {
         }}
         isClearable={true}
     />
-        <button className="btn100" onClick={publishListing}>Publish</button>
-    <button className="btn100" onClick={backbutton}>Back</button>
-    </>;
+        <button className="booking_btn" onClick={publishListing}>Publish</button>
+    <button className="booking_btn" onClick={backbutton}>Back</button>
+    </div>;
 }
 
 export default ListingPublish;

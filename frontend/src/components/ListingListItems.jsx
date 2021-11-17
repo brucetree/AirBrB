@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/ListingList.css';
 import PropTypes from 'prop-types';
 import ListingDelete from '../components/ListingDelete';
-import ListingPublish from '../components/ListingPublish';
+// import ListingPublish from '../components/ListingPublish';
 import ListingUnpublish from '../components/ListingUnpublish';
 import { Link } from 'react-router-dom';
 import '../css/Buttons.css';
@@ -10,6 +10,7 @@ import '../css/Buttons.css';
 const ListingCard = (props) => {
   const thumbnail = props.thumbnail;
   const price = props.price + '';
+  const publishUrl = '/listing/publish/' + props.id;
   if (props.published === true) {
     return (
       <div className = "listing_card">
@@ -39,7 +40,8 @@ const ListingCard = (props) => {
       <ListingCardLine title = "Rating" value = ''/>
       <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
       <ListingDelete name = {props.id}/>
-      <ListingPublish name = {props.id}/>
+      {/* <ListingPublish name = {props.id}/> */}
+        <Link to={publishUrl}><button className="btn100">Publish</button></Link>
     </div>
   );
 }

@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import ListingEdit from './pages/ListingEdit';
 import ListingDetail from './pages/ListingDetail';
 import NavBar from './components/NavBar';
+import ListingPublish from './components/ListingPublish';
 
 function App () {
   return (
@@ -27,6 +28,7 @@ function App () {
               <Route path="/common/login" element={<Login/>}/>
               <Route path="/common/register" element={<Register/>}/>
               <Route path="/common/logout" element={<Logout/>}/>
+              <Route path="/listing/publish/:listingId" element={<ListingPublish/>}/>
           </Routes>
         </Router>
       {/* <ListingList/> */}

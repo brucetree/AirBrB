@@ -70,6 +70,7 @@ const ListingDetail = () => {
     <div className = "detail_area r center">
     <DetailInfoTitle value='Booking'/>
       <Booking price={price} name={id}/>
+    <DetailInfoTitle value='Add review'/>
       <BookingOrnot listingid={id}/>
     </div>
     <div className = "detail_area r">

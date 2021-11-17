@@ -53,6 +53,7 @@ const BookingOrnot = (props) => {
     symbol = (<><br/>
       <p>booked!</p>
       <Review listingid={id} bookingid={booingid}/>
+      <br/>
     </>);
   } else {
     symbol = (<><br/><br/>You have not booked yet</>);

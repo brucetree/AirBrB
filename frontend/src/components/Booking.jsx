@@ -91,6 +91,7 @@ const Booking = (props) => {
     {/* eslint-disable-next-line react/prop-types */}
       <p>TotalPrice: {dateNum} X {props.price} = {dateNum * props.price}</p>
         <button className="book_btn" onClick={bookingFunction}>Booking</button>
+        <p></p>
     </>;
 }
 

@@ -17,6 +17,18 @@
     border-right: 1px solid black;
 }
 
+@media screen and (max-width: 700px) {
+    .create_edit_page{
+        width: 400px;
+        margin: 0px auto;
+    }
+
+    .create_edit_line{
+        white-space: pre;
+        width: 400px;
+    }
+}
+
 .create_edit_line.e{
     border-bottom: 1px solid black;
 }

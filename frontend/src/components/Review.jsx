@@ -69,7 +69,7 @@ const Review = (props) => {
   return <>
     Please Enter Reviews:<input type="text" value={reviews} onChange={ event => { setReviews(event.target.value) } }/><br/>
     Please Enter Score:<input type="number" value={score} onChange={ event => { setScore(event.target.value) } }/><br/>
-        <button className="book_btn" onClick={reviewFunction}>Review</button>
+        <button className="book_btn" onClick={reviewFunction}>Review</button> <br/>
     </>;
 }
 

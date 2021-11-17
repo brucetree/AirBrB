@@ -11,7 +11,7 @@ import ListingEdit from './pages/ListingEdit';
 import ListingDetail from './pages/ListingDetail';
 import NavBar from './components/NavBar';
 import ListingPublish from './components/ListingPublish';
-
+import BookingRequest from './pages/BookingRequest';
 function App () {
   return (
     <>
@@ -29,6 +29,7 @@ function App () {
               <Route path="/common/register" element={<Register/>}/>
               <Route path="/common/logout" element={<Logout/>}/>
               <Route path="/listing/publish/:listingId" element={<ListingPublish/>}/>
+              <Route path="/listing/bookingRequest" element={<BookingRequest/>}/>
           </Routes>
         </Router>
       {/* <ListingList/> */}

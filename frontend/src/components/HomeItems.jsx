@@ -46,7 +46,6 @@ const HomeCard = (props) => {
     fetch('http://localhost:5005/listings/' + props.value)
       .then(r => r.json())
       .then(data => {
-        // setOwner(data.listing.owner);
         setPrice(data.listing.price);
         setPublished(data.listing.published);
         setTitle(data.listing.title);

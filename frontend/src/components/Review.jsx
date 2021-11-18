@@ -58,7 +58,6 @@ const Review = (props) => {
           }
           )
         } else {
-          // console.log(data.bookingId);
           alert('review successfully');
           window.location.href = ('/listing/detail/' + Listid);
         }

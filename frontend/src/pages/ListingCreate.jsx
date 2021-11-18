@@ -20,7 +20,6 @@ const ListingCreate = () => {
     newBedrooms.push('1');
     setBedroomsList(newBedrooms);
     setBedrooms(bedrooms + 1);
-    console.log(bedroomsList);
   }
   const removeBedrooms = () => {
     setBedroomsList([]);

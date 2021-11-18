@@ -19,8 +19,6 @@ const ListingUnpublish = (props) => {
           alert('unpublish fails');
           return;
         }
-        console.log(data);
-        // navigate('/listings', { replace: true });
         window.location.href = '/listings';
       });
   };

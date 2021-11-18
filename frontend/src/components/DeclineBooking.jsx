@@ -19,9 +19,7 @@ const DeclineBooking = (props) => {
           alert('decline fails');
           return;
         }
-        console.log(data);
         alert('decline successfully');
-        // navigate('/listings', { replace: true });
         window.location.href = '/listing/bookingRequest';
       });
   };

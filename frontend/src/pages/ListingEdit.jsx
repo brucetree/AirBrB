@@ -23,7 +23,6 @@ const ListingEdit = () => {
     newBedrooms.push('1');
     setBedroomsList(newBedrooms);
     setBedrooms(bedrooms + 1);
-    console.log(bedroomsList);
   }
   const removeBedrooms = () => {
     setBedroomsList([]);
@@ -38,8 +37,6 @@ const ListingEdit = () => {
 
   const url = 'http://localhost:5005/listings/' + id;
   const token = localStorage.token;
-  console.log(id);
-  console.log(url);
   React.useEffect(() => {
     fetch('http://localhost:5005/listings/' + id)
       .then(r => r.json())
@@ -58,7 +55,6 @@ const ListingEdit = () => {
       );
   }, []);
   const editListing = () => {
-    console.log(url);
     if (title === '') {
       alert('Title can not be null!');
       return;

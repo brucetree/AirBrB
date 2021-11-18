@@ -23,7 +23,6 @@ function App () {
               <Route path="/listings" element={<ListingList/>}/>
               <Route path="/listing/create" element={<ListingCreate/>}/>
               <Route path="/listing/edit/:listingId" element={<ListingEdit/>}/>
-              {/* <Route path="/listing/delete/:listingId" element={<ListingDelete/>}/> */}
               <Route path="/listing/detail/:listingId" element={<ListingDetail/>}/>
               <Route path="/common/login" element={<Login/>}/>
               <Route path="/common/register" element={<Register/>}/>
@@ -32,8 +31,6 @@ function App () {
               <Route path="/listing/bookingRequest" element={<BookingRequest/>}/>
           </Routes>
         </Router>
-      {/* <ListingList/> */}
-      {/* <ListingCreate/> */}
     </>
   );
 }

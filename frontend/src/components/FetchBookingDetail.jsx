@@ -4,7 +4,6 @@ import DeclineBooking from './DeclineBooking';
 import PropTypes from 'prop-types';
 import '../css/Booking.css';
 const FetchBookingDetail = (props) => {
-  console.log('jinlaile');
   // eslint-disable-next-line react/prop-types
   const id = props.name;
   // eslint-disable-next-line react/prop-types

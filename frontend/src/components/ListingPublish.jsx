@@ -8,7 +8,6 @@ const ListingPublish = () => {
   const params = useParams();
   const [dateRange, setDateRange] = React.useState([null, null]);
   const [startDate, endDate] = dateRange;
-  console.log(startDate, endDate);
   // eslint-disable-next-line react/prop-types
   const id = params.listingId;
   const url = 'http://localhost:5005/listings/publish/' + id;
@@ -43,7 +42,6 @@ const ListingPublish = () => {
           alert('publish fails');
           return;
         }
-        console.log(data);
         alert('publish successfully');
         window.location.href = '/listings';
       });

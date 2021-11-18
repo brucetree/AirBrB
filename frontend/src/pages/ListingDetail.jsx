@@ -10,7 +10,6 @@ const ListingDetail = () => {
   const params = useParams();
   let id = '';
   id = params.listingId.toString();
-  console.log(id);
   const [owner, setOwner] = React.useState([]);
   const [title, setTitle] = React.useState([]);
   const [type, setType] = React.useState([]);

@@ -1,12 +1,6 @@
 import React from 'react';
 import '../css/Buttons.css';
-// import { useNavigate } from 'react-router-dom'
-// import { useParams } from 'react-router-dom';
 const ListingDelete = (props) => {
-  // const params = useParams();
-  // const id = params.listingId.toString();
-  // eslint-disable-next-line react/prop-types
-  // const navigate = useNavigate();
   // eslint-disable-next-line react/prop-types
   const id = props.name;
   const url = 'http://localhost:5005/listings/' + id;
@@ -26,8 +20,6 @@ const ListingDelete = (props) => {
           alert('delete fails');
           return;
         }
-        console.log(data);
-        // navigate('/listings', { replace: true });
         window.location.href = '/listings';
       });
   };

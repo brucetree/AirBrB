@@ -20,12 +20,8 @@ const Logout = () => {
           window.location.href = '/common/login';
           return;
         }
-        // console.log('zheshi data', data);
         localStorage.clear();
-        console.log(localStorage.email);
         window.location.href = '/common/login';
-        // console.log('zheshi token', localStorage.token);
-        // console.log(typeof localStorage.token);
       });
   };
   return <div className='log_out_page'>

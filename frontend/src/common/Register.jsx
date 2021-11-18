@@ -44,16 +44,16 @@ const Register = () => {
             REGISTER
         </div>
         <div className='log_register_line'>
-            <div className='log_register_tag'>Email:</div> <input type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/>
+            <div className='log_register_tag'>Email:</div> <input data-testid="email" type="text" value={email} onChange={ event => { setEmail(event.target.value) } }/>
         </div>
         <div className='log_register_line'>
-            <div className='log_register_tag'>Name:</div> <input type="text" value={name} onChange={ event => { setName(event.target.value) } }/>
+            <div className='log_register_tag'>Name:</div> <input data-testid="name" type="text" value={name} onChange={ event => { setName(event.target.value) } }/>
         </div>
         <div className='log_register_line'>
-            <div className='log_register_tag'>Password:</div> <input type="password" value={password} onChange={ event => { setPassword(event.target.value) } }/>
+            <div className='log_register_tag'>Password:</div> <input data-testid="password" type="password" value={password} onChange={ event => { setPassword(event.target.value) } }/>
         </div>
         <div className='log_register_line'>
-            <div className='log_register_tag'>Confirm:</div> <input type="password" value={confirmpassword} onChange={ event => { setConfirmpassword(event.target.value) } }/>
+            <div className='log_register_tag'>Confirm:</div> <input data-testid="confirm" type="password" value={confirmpassword} onChange={ event => { setConfirmpassword(event.target.value) } }/>
         </div>
         <button onClick={registerFunction} className='lr_btn'>Register</button>
     </div>;

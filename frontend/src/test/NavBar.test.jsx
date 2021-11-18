@@ -21,14 +21,11 @@ describe('<Navbar />', () => {
     expect(wrapper.find('.logo').length === 1);
   });
   // it('it can be clicked', () => {
+  //   const wrapper = shallow(<Navbar />);
   //   const onClick = jest.fn();
-  //   shallow(<button className="btn_nav">Home</button>).simulate('click');
+  //   const appButton = wrapper.find('button');
+  //   appButton.simulate('click');
   //   expect(onClick).toHaveBeenCalledTimes(1);
-  // const onClick = jest.fn();
-  // const button = 'Publish';
-  // const appButton = wrapper.find('button');
-  // button.simulate('click');
-  // expect(onClick).toHaveBeenCalledTimes(1);
   // });
   it('check button name', () => {
     const content = 'Home';

@@ -10,7 +10,7 @@ const ListingPublish = () => {
   const [startDate, endDate] = dateRange;
   console.log(startDate, endDate);
   // eslint-disable-next-line react/prop-types
-  const id = params.listingId.toString();
+  const id = params.listingId;
   const url = 'http://localhost:5005/listings/publish/' + id;
   const token = localStorage.token;
   const publishListing = () => {

@@ -47,7 +47,6 @@
     margin: 10px;
     height: 300px;
     border: 1px solid black;
-    overflow-y: auto;
 }
 
 .home_card_img{

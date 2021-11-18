@@ -5,7 +5,6 @@ import { DetailInfo, DetailInfoTitle } from '../components/DetailPageItems.jsx';
 import PropTypes from 'prop-types';
 import Booking from '../components/Booking';
 import BookingOrnot from '../components/BookingOrnot';
-// import Review from '../components/Review';
 
 const ListingDetail = () => {
   const params = useParams();

@@ -54,7 +54,7 @@ const ListingCard = (props) => {
       <ListingCardLine title = "Bathrooms" value = {props.bathrooms}/>
       <ListingCardLine title = "Beds" value = {props.beds}/>
       <ListingCardLine title = "Reviews" value = {props.reviews}/>
-      <ListingCardLine title = "Rating" value = {props.rating}/>
+      <ListingCardLine title = "Rating" value = {s}/>
       <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
       <ListingDelete name = {props.id}/>
       {/* <ListingPublish name = {props.id}/> */}

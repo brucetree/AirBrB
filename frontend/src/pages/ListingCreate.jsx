@@ -103,7 +103,7 @@ const ListingCreate = () => {
   };
   return <div className='create_edit_page'>
   <div className='create_edit_line title'>Creating Listing</div>
-  <div className='create_edit_line'>Title:     <input type="text" value={title} onChange={ event => { setTitle(event.target.value) } }/><br/>
+  <div className='create_edit_line'>Title:     <input data-testid="title_create" type="text" value={title} onChange={ event => { setTitle(event.target.value) } }/><br/>
   </div>
   <div className='create_edit_line'>Address(Location): <input type="text" value={addressLocation} onChange={ event => { setAddressLocation(event.target.value) } }/><br/>
   </div>
@@ -113,7 +113,7 @@ const ListingCreate = () => {
   </div>
   <div className='create_edit_line'>Price:     <input type="text" value={price} onChange={ event => { setPrice(event.target.value) } }/><br/>
   </div>
-  <div className='create_edit_line'>Property Type:    <select onChange={ event => { setType(event.target.value) } }>
+  <div className='create_edit_line'>Property Type:    <select data-testid="type_create" onChange={ event => { setType(event.target.value) } }>
       <option value="Entire">Entire</option>
       <option value="Hotel">Hotel</option>
       <option value="Private">Private</option>

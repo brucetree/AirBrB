@@ -27,7 +27,7 @@ const ListingDetail = () => {
       c = c + parseInt(l[i].score);
     }
     if (l.length > 0) {
-      const num = (c / l.length).toFixed(2);
+      const num = (c / l.length).toFixed(1);
       setRating(num);
     }
   }

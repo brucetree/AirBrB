@@ -6,7 +6,6 @@ const Review = (props) => {
   const Listid = props.listingid;
   // eslint-disable-next-line react/prop-types
   const bookid = props.bookingid;
-  console.log(bookid)
   const token = localStorage.token;
   const [reviews, setReviews] = React.useState('');
   const [score, setScore] = React.useState(0);

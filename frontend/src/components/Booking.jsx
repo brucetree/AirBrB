@@ -27,6 +27,7 @@ const Booking = (props) => {
   }
   const bookingFunction = () => {
     if (!token) {
+      alert('please login before booking');
       window.location.href = '/common/login';
       return;
     }

@@ -47,6 +47,7 @@
     margin: 10px;
     height: 300px;
     border: 1px solid black;
+    overflow-y: auto;
 }
 
 .home_card_img{
@@ -60,8 +61,7 @@
 .home_card_line{
     width: 260px;
     padding-left: 10px;
-    height: 35px;
-    line-height: 30px;
+    line-height: 35px;
     font-size: 18px;
     overflow: hidden;
     color: black;

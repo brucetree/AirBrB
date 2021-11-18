@@ -28,7 +28,8 @@ const ListingDetail = () => {
       c = c + parseInt(l[i].score);
     }
     if (l.length > 0) {
-      setRating(c / l.length);
+      const num = (c / l.length).toFixed(2);
+      setRating(num);
     }
   }
   React.useEffect(() => {

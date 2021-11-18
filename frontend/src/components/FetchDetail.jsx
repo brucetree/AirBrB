@@ -29,7 +29,8 @@ const FetchDetail = (props) => {
       c = c + parseInt(l[i].score);
     }
     if (l.length > 0) {
-      setRating(c / l.length);
+      const num = (c / l.length).toFixed(0);
+      setRating(num);
     }
   }
   React.useEffect(() => {

@@ -31,10 +31,8 @@ const ListingEdit = () => {
   }
   const updateBedroom = (index, newInput) => {
     const newBedrooms = [...bedroomsList];
-    console.log(newBedrooms, index, newInput);
     newBedrooms[index] = newInput;
     setBedroomsList(newBedrooms);
-    console.log(bedroomsList);
   }
   const id = params.listingId.toString();
 

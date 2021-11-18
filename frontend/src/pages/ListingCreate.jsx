@@ -27,7 +27,7 @@ const ListingCreate = () => {
     setBedrooms(0);
   }
   const updateBedroom = (index, newInput) => {
-    const newBedrooms = bedroomsList;
+    const newBedrooms = [...bedroomsList];
     newBedrooms[index] = newInput;
     setBedroomsList(newBedrooms);
   }

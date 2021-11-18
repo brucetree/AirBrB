@@ -11,6 +11,23 @@ const ListingCard = (props) => {
   const thumbnail = props.thumbnail;
   const price = props.price + '';
   const publishUrl = '/listing/publish/' + props.id;
+  let s = '';
+  if (props.rating > 1) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 3) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 5) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 7) {
+    s = s + '★';
+  } else s = s + '☆';
+  if (props.rating > 9) {
+    s = s + '★';
+  } else s = s + '☆';
+  s = s + ' ' + props.rating;
   if (props.published === true) {
     return (
       <div className = "listing_card">
@@ -21,7 +38,7 @@ const ListingCard = (props) => {
         <ListingCardLine title = "Bathrooms" value = {props.bathrooms}/>
         <ListingCardLine title = "Beds" value = {props.beds}/>
         <ListingCardLine title = "Reviews" value = {props.reviews}/>
-        <ListingCardLine title = "Rating" value = {props.rating}/>
+        <ListingCardLine title = "Rating" value = {s}/>
         <Link to = {props.urlEdit}><button className='btn100'>Edit</button></Link>
         <ListingDelete name = {props.id}/>
         <ListingUnpublish name = {props.id}/>

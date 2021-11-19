@@ -19,6 +19,8 @@ const SearchForm = (props) => {
   const [PriceMax, setPriceMax] = React.useState('');
   const [BedroomsMin, setBedroomsMin] = React.useState('');
   const [BedroomsMax, setBedroomsMax] = React.useState('');
+  const [RatingMin, setRatingMin] = React.useState('0');
+  const [RatingMax, setRatingMax] = React.useState('10');
   const putInfo = () => {
     let t = getQueryVariable('search_title');
     setTitle(t);
@@ -32,6 +34,16 @@ const SearchForm = (props) => {
     setBedroomsMin(t);
     t = getQueryVariable('search_bedrooms_max');
     setBedroomsMax(t);
+    t = getQueryVariable('search_rating_min');
+    t = parseInt(t);
+    if (isNaN(t) === false) {
+      setRatingMin(t);
+    }
+    t = getQueryVariable('search_rating_max');
+    t = parseInt(t);
+    if (isNaN(t) === false) {
+      setRatingMax(t);
+    }
   }
   React.useEffect(() => {
     putInfo();
@@ -47,6 +59,33 @@ const SearchForm = (props) => {
       Price(Max) : <input data-testid="price_max" name='search_price_max' value={PriceMax} onChange={ event => { setPriceMax(event.target.value) } }/>
       Bedrooms(Min) <input data-testid="bedrooms_min" name='search_bedrooms_min' value={BedroomsMin} onChange={ event => { setBedroomsMin(event.target.value) } }/>
       Bedrooms(Max) <input data-testid="bedrooms_max" name='search_bedrooms_max' value={BedroomsMax} onChange={ event => { setBedroomsMax(event.target.value) } }/>
+      <br/>
+      Rating(Min) <select data-testid="rating_min" name='search_rating_min' value={RatingMin} onChange={ event => { setRatingMin(event.target.value) } }>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      </select>
+      &nbsp;&nbsp;&nbsp;Rating(Max) <select data-testid="rating_max" name='search_rating_max' value={RatingMax} onChange={ event => { setRatingMax(event.target.value) } }>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      </select>
       <br/><button type='submit' className='home_search_btn'>Search</button>
     </form>
     </div>

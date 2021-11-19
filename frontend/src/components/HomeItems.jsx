@@ -71,6 +71,10 @@ const HomeCard = (props) => {
   let sBedroomsMax = getQueryVariable('search_bedrooms_max');
   sBedroomsMax = parseInt(sBedroomsMax);
   sBedroomsMin = parseInt(sBedroomsMin);
+  let sRatingMin = getQueryVariable('search_rating_min');
+  let sRatingMax = getQueryVariable('search_rating_max');
+  sRatingMax = parseFloat(sRatingMax);
+  sRatingMin = parseFloat(sRatingMin);
   if (addressLocation === '123' && addressState === '123' && beds === '') {
     console.log('h1');
   }
@@ -91,6 +95,12 @@ const HomeCard = (props) => {
       return <></>;
     }
     if (isNaN(sBedroomsMin) === false && bedrooms < sBedroomsMin) {
+      return <></>;
+    }
+    if (isNaN(sRatingMax) === false && rating > sRatingMax) {
+      return <></>;
+    }
+    if (isNaN(sRatingMin) === false && rating < sRatingMin) {
       return <></>;
     }
     return <a href={url}><HomeCardInfo bedrooms={bedrooms} rating={rating} beds={beds} title={title} reviews={reviews} thumbnail={thumbnail} address={addressCity} price={price}/></a>;

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Buttons.css';
+import PropTypes from 'prop-types';
 const ListingDelete = (props) => {
-  // eslint-disable-next-line react/prop-types
   const id = props.name;
   const url = 'http://localhost:5005/listings/' + id;
   const token = localStorage.token;
@@ -27,5 +27,7 @@ const ListingDelete = (props) => {
         <button className="btn100" onClick={deleteListing}>Delete</button>
     </>;
 }
-
+ListingDelete.propTypes = {
+  name: PropTypes.string,
+}
 export default ListingDelete;

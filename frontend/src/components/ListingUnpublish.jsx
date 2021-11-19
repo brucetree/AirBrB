@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Buttons.css';
+import PropTypes from 'prop-types';
 const ListingUnpublish = (props) => {
-  // eslint-disable-next-line react/prop-types
   const id = props.name;
   const url = 'http://localhost:5005/listings/unpublish/' + id;
   const token = localStorage.token;
@@ -26,5 +26,7 @@ const ListingUnpublish = (props) => {
         <button className="btn100" onClick={unpublishListing}>Unpublish</button>
     </>;
 }
-
+ListingUnpublish.propTypes = {
+  name: PropTypes.string,
+}
 export default ListingUnpublish;

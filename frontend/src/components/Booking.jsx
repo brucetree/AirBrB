@@ -4,8 +4,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 import '../css/Detail.css';
+import PropTypes from 'prop-types';
 const Booking = (props) => {
-  // eslint-disable-next-line react/prop-types
   const id = props.name;
   const url = 'http://localhost:5005/bookings/new/' + id;
   const token = localStorage.token;
@@ -17,7 +17,6 @@ const Booking = (props) => {
     const startdate = moment(e[0]);
     const enddate = moment(e[1])
     setDateNum(enddate.diff(startdate, 'days'));
-    // eslint-disable-next-line react/prop-types
     settotalPrice(dateNum * Number(props.price));
     console.log(totalPrice);
   }
@@ -82,11 +81,15 @@ const Booking = (props) => {
         isClearable={true}
     />
     </div>
-    {/* eslint-disable-next-line react/prop-types */}
       <p>TotalPrice: {dateNum} X {props.price} = {dateNum * props.price}</p>
         <button className="book_btn" onClick={bookingFunction}>Booking</button>
         <p></p>
     </>;
+}
+
+Booking.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
 }
 
 export default Booking;

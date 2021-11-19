@@ -5,7 +5,6 @@ import FetchBookingDetail from '../components/FetchBookingDetail';
 const BookingRequest = () => {
   const [listings, setListings] = React.useState([]);
   const token = localStorage.token;
-  // const email = localStorage.email;
   React.useEffect(() => {
     fetch('http://localhost:5005/bookings', {
       method: 'GET',

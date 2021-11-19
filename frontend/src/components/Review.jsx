@@ -1,10 +1,9 @@
 import React from 'react';
 import '../css/Buttons.css';
+import PropTypes from 'prop-types';
 
 const Review = (props) => {
-  // eslint-disable-next-line react/prop-types
   const Listid = props.listingid;
-  // eslint-disable-next-line react/prop-types
   const bookid = props.bookingid;
   const token = localStorage.token;
   const [reviews, setReviews] = React.useState('');
@@ -70,5 +69,8 @@ const Review = (props) => {
         <button className="book_btn" onClick={reviewFunction}>Review</button> <br/>
     </>;
 }
-
+Review.propTypes = {
+  listingid: PropTypes.string,
+  bookingid: PropTypes.string,
+}
 export default Review;

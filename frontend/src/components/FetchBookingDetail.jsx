@@ -4,11 +4,8 @@ import DeclineBooking from './DeclineBooking';
 import PropTypes from 'prop-types';
 import '../css/Booking.css';
 const FetchBookingDetail = (props) => {
-  // eslint-disable-next-line react/prop-types
   const id = props.name;
-  // eslint-disable-next-line react/prop-types
   const bookingList = props.list;
-  // eslint-disable-next-line react/prop-types
   const bookingid = props.bookingID;
   const email = localStorage.email;
   const [owner, setOwner] = React.useState('');

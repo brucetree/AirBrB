@@ -4,7 +4,6 @@ import '../css/ListingList.css';
 import PropTypes from 'prop-types';
 
 const FetchDetail = (props) => {
-  // eslint-disable-next-line react/prop-types
   const id = props.name;
   const urlEdit = '/listing/edit/' + props.name;
   const [title, setTitle] = React.useState([]);

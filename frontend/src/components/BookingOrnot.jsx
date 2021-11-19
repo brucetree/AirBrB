@@ -1,7 +1,7 @@
 import React from 'react';
 import Review from './Review';
+import PropTypes from 'prop-types';
 const BookingOrnot = (props) => {
-  // eslint-disable-next-line react/prop-types
   const id = props.listingid;
   const url = 'http://localhost:5005/bookings';
   const token = localStorage.token;
@@ -51,6 +51,9 @@ const BookingOrnot = (props) => {
   return <>
     {symbol}
     </>
+}
+BookingOrnot.propTypes = {
+  listingid: PropTypes.string,
 }
 
 export default BookingOrnot;
